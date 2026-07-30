@@ -83,6 +83,59 @@ function closeScriptDetail() {
   }, 350);
 }
 
+const priceMap = {
+  '6K':  { rp: 6000,  total: 6000  },
+  '12K': { rp: 12000, total: 12000 },
+  '20K': { rp: 20000, total: 20000 },
+  '29K': { rp: 29000, total: 29000 },
+};
+
+function openOrder(name, price, duration) {
+  _doOpenOrder(name, price, duration);
+}
+
+function _doOpenOrder(name, price, duration) {
+  const $ = id => document.getElementById(id);
+  const p = priceMap[price] || { rp: 0, total: 0 };
+  const formatted = 'Rp ' + p.total.toLocaleString('id');
+
+  if ($('orderHargaBesar')) $('orderHargaBesar').textContent = formatted;
+
+  const modal = $('orderModal');
+  if (!modal) return;
+  modal.dataset.pkg      = name;
+  modal.dataset.price    = price;
+  modal.dataset.duration = duration;
+  modal.dataset.total    = p.total;
+
+  modal.style.display = 'block';
+  modal.style.visibility = 'visible';
+  modal.style.transform = 'translateX(100%)';
+  document.body.style.overflow = 'hidden';
+  void modal.offsetHeight;
+  modal.style.transform = 'translateX(0)';
+  modal.scrollTop = 0;
+}
+
+function closeOrder() {
+  const modal = document.getElementById('orderModal');
+  if (!modal) return;
+  modal.style.transform = 'translateX(100%)';
+  setTimeout(() => {
+    modal.style.visibility = 'hidden';
+    modal.style.display = '';
+    document.body.style.overflow = '';
+  }, 350);
+}
+
+function handleBeli() {
+  const modal = document.getElementById('orderModal');
+  const duration = (modal && modal.dataset.duration) || '15 hari';
+  const msg = 'hai aku ingin pesan paket sewabot ' + duration;
+  const waHref = 'https://wa.me/6289674097203?text=' + encodeURIComponent(msg);
+  window.open(waHref, '_blank');
+}
+
 function openScriptOrder(nama, harga) {
   const modal = document.getElementById('scriptOrderModal');
   if (!modal) return;
@@ -161,3 +214,65 @@ function filterPricing(tab) {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeScriptBotDetail();
 });
+
+/* ===== BANNER SLIDER NEUBRUTALISM ===== */
+(function() {
+  let nbCurrent = 0;
+  const total = 3;
+  let nbTimer;
+  let startX = 0;
+  let isDragging = false;
+
+  function nbGoTo(idx) {
+    nbCurrent = (idx + total) % total;
+    const track = document.getElementById('nbTrack');
+    if (!track) return;
+    track.style.transform = `translateX(-${nbCurrent * 100}%)`;
+    document.querySelectorAll('.nb-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === nbCurrent);
+    });
+  }
+
+  function nbNext() { nbGoTo(nbCurrent + 1); }
+  function nbPrev() { nbGoTo(nbCurrent - 1); }
+
+  function nbStartAuto() {
+    clearInterval(nbTimer);
+    nbTimer = setInterval(nbNext, 2000);
+  }
+
+  window.nbGoTo = nbGoTo;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('nbTrack');
+    if (!track) return;
+
+    // Touch / drag support
+    track.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+      clearInterval(nbTimer);
+    }, { passive: true });
+
+    track.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) diff > 0 ? nbNext() : nbPrev();
+      nbStartAuto();
+    }, { passive: true });
+
+    track.addEventListener('mousedown', e => {
+      startX = e.clientX;
+      isDragging = true;
+      clearInterval(nbTimer);
+    });
+
+    document.addEventListener('mouseup', e => {
+      if (!isDragging) return;
+      isDragging = false;
+      const diff = startX - e.clientX;
+      if (Math.abs(diff) > 40) diff > 0 ? nbNext() : nbPrev();
+      nbStartAuto();
+    });
+
+    nbStartAuto();
+  });
+})();

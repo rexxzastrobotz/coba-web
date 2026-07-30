@@ -21,10 +21,10 @@
 </head>
 <body>
 
-<!-- ===== AUTH MODAL (DISABLED - tidak digunakan lagi) ===== -->
+
 <div id="authGate" style="display:none !important;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px;">
 
-  <!-- LOGIN SCREEN -->
+
   <div id="loginScreen" class="auth-screen active">
     <div class="auth-bg-grid"></div>
     <div class="auth-card">
@@ -41,7 +41,7 @@
     </div>
   </div>
 
-  <!-- USERNAME SETUP SCREEN -->
+
   <div id="usernameScreen" class="auth-screen">
     <div class="auth-bg-grid"></div>
     <div class="auth-card">
@@ -57,7 +57,7 @@
     </div>
   </div>
 
-  <!-- LOADING SCREEN -->
+
   <div id="loadingScreen" class="auth-screen" style="display:none">
     <div class="auth-bg-grid"></div>
     <div class="auth-spinner-wrap">
@@ -67,41 +67,37 @@
   </div>
 
 </div>
-<!-- ===== END AUTH MODAL ===== -->
 
-<!-- MAIN CONTENT (selalu tampil) -->
+
+
 <div id="mainContent">
 
 <div id="bar"></div>
-<!-- OVERLAY -->
+
 <div class="overlay" id="ov" onclick="closeMenu()" style="z-index:999998;"></div>
-<!-- MENU PANEL -->
+
 <div class="panel" id="pn" style="z-index:999999;background:rgba(15,15,15,0.85);backdrop-filter:blur(16px);">
-<div class="panel-head" style="background:rgba(20,20,20,0.7);backdrop-filter:blur(12px);">
-<div id="panelUserInfo" style="display:none;align-items:center;gap:10px;flex:1;min-width:0">
-  <div id="panelUserAv" style="width:36px;height:36px;border-radius:50%;background:#222;display:flex;align-items:center;justify-content:center;font-size:.75rem;color:#ccc;font-weight:700;overflow:hidden;flex-shrink:0"></div>
-  <div style="min-width:0;flex:1">
-    <div id="panelUserName" style="font-size:.82rem;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"></div>
-    <div id="panelUserEmail" style="font-size:.68rem;color:#666;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"></div>
+<div class="panel-head" style="background:rgba(20,20,20,0.7);backdrop-filter:blur(12px);padding:0;border-bottom:none;position:relative;">
+<div id="panelUserInfo" style="display:none;align-items:center;gap:10px;flex:1;min-width:0"></div>
+<div id="panelNoUser" class="panel-banner-wrap">
+  <div class="panel-banner-thumb">
+    <img src="https://g.top4top.io/p_3862802bm1.png" alt="Banner navigasi" loading="lazy"/>
   </div>
-</div>
-<div id="panelNoUser" style="flex:1">
-  <h3>Menu Navigasi</h3>
 </div>
 <button class="panel-close" onclick="closeMenu()"><i class="fas fa-times"></i></button>
 </div>
 <nav class="panel-nav">
-<a class="plink" href="#" onclick="closeMenu()"><i class="fas fa-home"></i> Beranda</a>
-<a class="plink" href="#pricing" onclick="closeMenu()"><i class="fas fa-cube"></i> Produk</a>
-<a class="plink" href="#features" onclick="closeMenu()"><i class="fas fa-star"></i> Fitur Unggulan</a>
-<a class="plink" href="#faq" onclick="closeMenu()"><i class="fas fa-question-circle"></i> FAQ</a>
-<a class="plink" href="https://wa.me/6289674097203" target="_blank"><i class="fas fa-at"></i> Kontak</a>
+<a class="plink" href="#" onclick="closeMenu()"><span class="plink-icon"><i class="fas fa-home"></i></span><span class="plink-text">Beranda</span></a>
+<a class="plink" href="#pricing" onclick="closeMenu()"><span class="plink-icon"><i class="fas fa-cube"></i></span><span class="plink-text">Produk</span></a>
+<a class="plink" href="#features" onclick="closeMenu()"><span class="plink-icon"><i class="fas fa-star"></i></span><span class="plink-text">Fitur Unggulan</span></a>
+<a class="plink" href="#faq" onclick="closeMenu()"><span class="plink-icon"><i class="fas fa-question-circle"></i></span><span class="plink-text">FAQ</span></a>
+<a class="plink" href="https://wa.me/6289674097203" target="_blank"><span class="plink-icon"><i class="fas fa-at"></i></span><span class="plink-text">Kontak</span></a>
 </nav>
 </nav>
   <div class="panel-foot">© 2026 Astrobot · All rights reserved</div>
 </div>
 
-<!-- HEADER -->
+
 <header style="background:rgba(30,30,30,0.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);">
 <div class="hdr">
 <a class="logo" href="#" style="display:flex;align-items:center;gap:6px;text-decoration:none;">
@@ -112,21 +108,57 @@
 </div>
 </div>
 </header>
-<!-- SABTU PROMO BANNER -->
 
-<!-- BANNER -->
-<div class="banner">
-<div class="banner-wrap">
-<img alt="Astrobot" loading="lazy" src="https://k.top4top.io/p_38187yaj81.jpeg"/>
+
+
+<!-- BANNER SLIDER NEUBRUTALISM -->
+<div class="nb-slider-outer">
+  <div class="nb-slider-track" id="nbTrack">
+    <!-- Slide 1 -->
+    <div class="nb-slide">
+      <img src="https://raw.githubusercontent.com/rexxzastrobotz/Web-resmi-/main/IMG-20260729-WA0029.jpg" alt="Astrobot 1" loading="lazy"/>
+      <div class="nb-slide-overlay">
+        <div class="nb-slide-badge">BOT</div>
+        <div class="nb-slide-title">ASTROBOT MD</div>
+        <div class="nb-slide-sub">927+ Plugin • ESM Module • Free Update</div>
+      </div>
+    </div>
+    <!-- Slide 2 -->
+    <div class="nb-slide">
+      <img src="https://raw.githubusercontent.com/rexxzastrobotz/Web-resmi-/main/246c60e4-3d2f-4318-bc8f-54a7ca9596e7.jpeg" alt="Astrobot 2" loading="lazy"/>
+      <div class="nb-slide-overlay">
+        <div class="nb-slide-badge">RPG</div>
+        <div class="nb-slide-title">GAME & RPG</div>
+        <div class="nb-slide-sub">Level, EXP, Dungeon & 100+ Fitur</div>
+      </div>
+    </div>
+    <!-- Slide 3 -->
+    <div class="nb-slide">
+      <img src="https://raw.githubusercontent.com/rexxzastrobotz/Web-resmi-/main/IMG-20260628-WA0041.jpg" alt="Astrobot 3" loading="lazy"/>
+      <div class="nb-slide-overlay">
+        <div class="nb-slide-badge">AI</div>
+        <div class="nb-slide-title">AI & TOOLS</div>
+        <div class="nb-slide-sub">GPT, Gemini, Downloader & Sticker</div>
+      </div>
+    </div>
+  </div>
+  <!-- Dots -->
+  <div class="nb-dots">
+    <span class="nb-dot active" onclick="nbGoTo(0)"></span>
+    <span class="nb-dot" onclick="nbGoTo(1)"></span>
+    <span class="nb-dot" onclick="nbGoTo(2)"></span>
+  </div>
+  <!-- Border dekorasi neubrutalism -->
+  <div class="nb-neo-border"></div>
 </div>
-</div>
-<!-- HERO -->
+<!-- END BANNER SLIDER -->
+
 <section>
 <div class="hero">
 <div class="hero-grid">
-<!-- KIRI -->
+
 <div>
-<div class="hero-badge" style="display:flex;align-items:center;gap:5px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><circle cx="12" cy="12" r="12" fill="#1d9bf0"/><path d="M6.5 12.5l3.5 3.5 7.5-8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Astrobot Dev</div>
+<div class="hero-badge" style="display:flex;align-items:center;gap:5px;visibility:hidden;height:0;margin-bottom:0;padding:0;border:none;background:transparent;"></div>
 <h1>Astrobot <span>WhatsApp</span> Bot</h1>
 <div class="type-wrap">
 <span class="typed">Otomatis untuk Grup &amp; Pribadi</span>
@@ -136,14 +168,11 @@
 <a class="btn-purple" href="#pricing"><i class="fas fa-tags" style="font-size:.8rem"></i> Lihat Harga</a>
 <a class="btn-outline" href="https://wa.me/6289674097203" target="_blank"><i class="fab fa-whatsapp" style="color:#22c55e;font-size:.9rem"></i> Hubungi Admin</a>
 </div>
-<div class="spotify-embed-wrap">
-  <iframe class="spotify-embed" src="https://open.spotify.com/embed/playlist/7a275e9VmzavEmwfiEXBJQ?utm_source=generator" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-</div>
 </div>
 
 </div>
 </div>
-<!-- KANAN: FEATURE CARD -->
+
 <div id="features">
 <div class="feat-card rv d2">
 <div class="fc-head">
@@ -186,10 +215,10 @@
 </div>
 </div>
 </section>
-<!-- WHY -->
+
 <section class="why-sec">
 <div class="sec">
-<div class="sec-lbl">Kenapa Astrobot?</div>
+<div class="sec-lbl">Kenapa Milih Astrobot?</div>
 <h2 class="sec-title rv"></h2>
 <div class="why-grid">
 <div class="why-card rv d1">
@@ -210,13 +239,13 @@
 </div>
 </div>
 </section>
-<!-- PRICING -->
+
 <section id="pricing">
 <div class="sec">
 <div class="sec-lbl">Produk &amp; Harga</div>
 <h2 class="sec-title rv">Pilih produk <span>yang cocok.</span></h2>
 
-<!-- FILTER TABS -->
+
 <div style="display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap;">
   <button onclick="filterPricing('group')" id="tab-group" class="pricing-tab active-tab">
     Sewa Bot (Group)
@@ -231,7 +260,7 @@
 </div>
 
 <div class="pricing-wrap pricing-wrap-group" id="pricing-group" style="position:relative;">
-<!-- CARD 15 HARI -->
+
 <div class="nc rv d1" style="position:relative;overflow:hidden;">
 <div class="nc-top">
 <div>
@@ -247,7 +276,7 @@
 </div>
 <button class="nc-cta" onclick="openOrder('Sewa Bot Grup 15 Hari', '6K', '15 hari')"><i class="fas fa-shopping-cart"></i> Sewa Sekarang</button>
 </div>
-<!-- CARD 30 HARI -->
+
 <div class="nc rv d2" style="position:relative;overflow:hidden;">
 <div class="nc-top">
 <div>
@@ -264,7 +293,7 @@
 </div>
 <button class="nc-cta" onclick="openOrder('Sewa Bot Grup 30 Hari', '12K', '30 hari')"><i class="fas fa-shopping-cart"></i> Sewa Sekarang</button>
 </div>
-<!-- CARD 60 HARI -->
+
 <div class="nc rv d3" style="position:relative;overflow:hidden;">
 <div class="nc-top">
 <div>
@@ -282,7 +311,7 @@
 </div>
 <button class="nc-cta" onclick="openOrder('Sewa Bot Grup 60 Hari', '20K', '60 hari')"><i class="fas fa-shopping-cart"></i> Sewa Sekarang</button>
 </div>
-<!-- CARD TAHUNAN / PERMANEN -->
+
 <div class="nc nc-perm-glow rv d4" style="position:relative;overflow:hidden;" id="card-permanen">
 <div class="nc-shimmer"></div>
 <div class="nc-top">
@@ -305,7 +334,7 @@
 </div>
 </div><!-- end pricing-group -->
 
-<!-- PREMIUM USER -->
+
 <div id="pricing-script" style="display:none;">
 <div class="pricing-unavailable rv d1" style="margin-bottom:18px;background:rgba(24,24,24,0.78);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.06);">
   <div class="pricing-unavailable-icon" style="color:#ffffff;">✦</div>
@@ -314,51 +343,7 @@
 </div>
 </div><!-- end pricing-script -->
 
-<!-- SCRIPT BOT -->
-<div id="pricing-scriptbot" style="display:none;">
-<div class="pricing-wrap">
-<div class="nc rv d1">
-<div class="nc-top">
-<div>
-<div class="nc-name">Script Astrobot MD</div>
-<div class="nc-sub">Free Update Selamanya</div>
-</div>
-</div>
-<div class="nc-price">50.000 <span class="nc-per">/ lifetime</span></div>
-<div class="nc-bens">
-<div class="nc-ben">927+ Plugin siap pakai</div>
-<div class="nc-ben">Free update selamanya</div>
-<div class="nc-ben">ESM Module & Node 18/20/22</div>
-<div class="nc-ben">Multi Device & Pairing Code</div>
-</div>
-<button class="nc-cta" onclick="openScriptBotDetail()"><i class="fas fa-shopping-cart"></i> Detail Produk</button>
-</div>
-</div>
-</div><!-- end pricing-scriptbot -->
 
-<div id="pricing-scriptbot" style="display:none;">
-<div class="nc rv d1" style="max-width:420px;margin:0 auto;">
-<div class="nc-top">
-<div>
-<div class="nc-name">SCRIPT ASTROBOT</div>
-<div class="nc-sub">Free Update Selamanya</div>
-</div>
-</div>
-<div class="nc-price">50.000</div>
-<div class="nc-bens">
-<div class="nc-ben">Ratusan plugin siap pakai</div>
-<div class="nc-ben">Free update selamanya selama pengembangan</div>
-<div class="nc-ben">Support Multi Device &amp; ESM Module</div>
-<div class="nc-ben">Hot reload config tanpa restart</div>
-</div>
-<div style="display:flex;gap:10px;margin-top:4px;">
-<button class="nc-cta" style="flex:1;" onclick="openScriptOrder('ASTROBOT MD Free Update Selamanya', 50000)"><i class="fas fa-shopping-cart"></i> Beli Sekarang</button>
-<button onclick="openScriptDetail('update')" style="flex:1;padding:12px;border-radius:9px;background:transparent;border:1px solid #2a2a2a;color:#888;font-size:.82rem;font-weight:700;cursor:pointer;font-family:inherit;transition:.2s;" onmouseover="this.style.borderColor='#555';this.style.color='#ccc'" onmouseout="this.style.borderColor='#2a2a2a';this.style.color='#888'">Detail Produk</button>
-</div>
-</div>
-</div><!-- end pricing-script -->
-
-<!-- SCRIPT BOT -->
 <div id="pricing-scriptbot" style="display:none;">
 <div class="pricing-wrap">
 <div class="nc rv d1">
@@ -384,7 +369,7 @@
 </section>
 
 
-<!-- FAQ -->
+
 <section class="faq-sec" id="faq">
 <div class="sec">
 <div class="sec-lbl">FAQ</div>
@@ -422,35 +407,86 @@
 </section>
 
 
-<!-- BOTTOM CTA -->
 
-<!-- FOOTER -->
+
+
 <footer style="background:#000000;border-top:1px solid rgba(255,255,255,0.1);padding:0">
-<!-- Main footer content -->
+
 <div style="max-width:1100px;margin:0 auto;padding:48px 24px 32px">
-<!-- Brand col -->
+
 <div style="max-width:320px">
 <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">
 <span style="width:8px;height:8px;border-radius:50%;background:#ffffff;flex-shrink:0;display:inline-block"></span>
 <span style="font-size:1.05rem;font-weight:800;color:#ffffff">Astrobot</span>
 </div>
 <p style="font-size:.8rem;color:#aaaaaa;line-height:1.85;margin-bottom:20px">Bot WhatsApp serbaguna untuk kebutuhan grup &amp; pribadi. Fitur lengkap, stabil 24/7, harga terjangkau.</p>
-<!-- Sosmed icons -->
-<div style="display:flex;gap:8px">
-<a href="https://wa.me/6289674097203" onmouseout="this.style.background='#1a1a1a';this.style.borderColor='rgba(255,255,255,0.15)';this.style.color='#999999'" onmouseover="this.style.background='#22c55e20';this.style.borderColor='#22c55e';this.style.color='#22c55e'" style="width:36px;height:36px;border-radius:8px;background:#1a1a1a;border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;color:#999999;font-size:.9rem;text-decoration:none;transition:.2s" target="_blank" title="Chat Owner"><i class="fab fa-whatsapp"></i></a>
 
+<!-- Community Cards -->
+<div style="display:flex;flex-direction:column;gap:10px;margin-top:16px;">
+
+  <!-- Saluran WA -->
+  <a href="https://whatsapp.com/channel/0029VbC6RVdIt5s3zNeEzP2m" target="_blank" style="display:flex;align-items:center;gap:10px;background:#111;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:10px;text-decoration:none;transition:.2s;" onmouseover="this.style.borderColor='rgba(34,197,94,0.4)';this.style.background='#141414'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.background='#111'">
+    <img src="https://raw.githubusercontent.com/rexxzastrobotz/Web-resmi-/main/IMG-20260628-WA0041.jpg" alt="Saluran" style="width:48px;height:48px;border-radius:8px;object-fit:cover;flex-shrink:0;">
+    <div style="min-width:0;">
+      <div style="font-size:.78rem;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Astrobot Digital</div>
+      <div style="font-size:.68rem;color:#555;margin-top:2px;display:flex;align-items:center;gap:4px;">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="#22c55e"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.524 5.847L0 24l6.347-1.499A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm6.215 16.615c-.267.746-1.539 1.456-2.11 1.508-.518.048-1.002.232-3.378-.703-2.847-1.12-4.679-4.023-4.82-4.209-.141-.187-1.148-1.527-1.148-2.912s.728-2.067.986-2.35c.258-.282.564-.352.752-.352l.54.01c.173.008.406-.066.635.484.237.568.804 1.963.875 2.107.071.143.12.31.024.499-.095.188-.143.305-.282.469-.14.165-.294.369-.42.495-.14.14-.285.291-.123.571.163.28.723 1.191 1.552 1.928 1.066.948 1.965 1.241 2.246 1.382.282.14.447.117.611-.07.164-.188.703-.819.89-1.1.187-.282.375-.234.633-.14.258.094 1.64.773 1.921.913.28.14.468.211.538.328.07.117.07.673-.197 1.422z"/></svg>
+        <span style="color:#22c55e;">Saluran WhatsApp</span>
+      </div>
+    </div>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" style="margin-left:auto;flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
+  </a>
+
+  <!-- Grup 1 -->
+  <a href="https://chat.whatsapp.com/EkXDeM57C9k07EJqqEfbiT?s=cl&p=a&ilr=4" target="_blank" style="display:flex;align-items:center;gap:10px;background:#111;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:10px;text-decoration:none;transition:.2s;" onmouseover="this.style.borderColor='rgba(34,197,94,0.4)';this.style.background='#141414'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.background='#111'">
+    <img src="https://raw.githubusercontent.com/rexxzastrobotz/Web-resmi-/main/246c60e4-3d2f-4318-bc8f-54a7ca9596e7.jpeg" alt="Grup" style="width:48px;height:48px;border-radius:8px;object-fit:cover;flex-shrink:0;">
+    <div style="min-width:0;">
+      <div style="font-size:.78rem;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Grup Astrobot Community</div>
+      <div style="font-size:.68rem;color:#555;margin-top:2px;display:flex;align-items:center;gap:4px;">
+        <i class="fas fa-users" style="color:#22c55e;font-size:.6rem;"></i>
+        <span>Grup Publik</span>
+      </div>
+    </div>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" style="margin-left:auto;flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
+  </a>
+
+  <!-- Grup 2 -->
+  <a href="https://chat.whatsapp.com/Cdn8Jl5sws8Ke0RI3Sk7p6?s=cl&p=a&ilr=4" target="_blank" style="display:flex;align-items:center;gap:10px;background:#111;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:10px;text-decoration:none;transition:.2s;" onmouseover="this.style.borderColor='rgba(34,197,94,0.4)';this.style.background='#141414'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.background='#111'">
+    <img src="https://raw.githubusercontent.com/rexxzastrobotz/Web-resmi-/main/246c60e4-3d2f-4318-bc8f-54a7ca9596e7.jpeg" alt="Grup" style="width:48px;height:48px;border-radius:8px;object-fit:cover;flex-shrink:0;">
+    <div style="min-width:0;">
+      <div style="font-size:.78rem;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Grup Astrobot Community 2</div>
+      <div style="font-size:.68rem;color:#555;margin-top:2px;display:flex;align-items:center;gap:4px;">
+        <i class="fas fa-users" style="color:#22c55e;font-size:.6rem;"></i>
+        <span>Grup Publik</span>
+      </div>
+    </div>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" style="margin-left:auto;flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
+  </a>
+
+  <!-- Grup 3 -->
+  <a href="https://chat.whatsapp.com/Bu6UkFMHsBnASwQRDYpZFa?s=cl&p=a&ilr=4&amv=1" target="_blank" style="display:flex;align-items:center;gap:10px;background:#111;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:10px;text-decoration:none;transition:.2s;" onmouseover="this.style.borderColor='rgba(34,197,94,0.4)';this.style.background='#141414'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.background='#111'">
+    <img src="https://raw.githubusercontent.com/rexxzastrobotz/Web-resmi-/main/246c60e4-3d2f-4318-bc8f-54a7ca9596e7.jpeg" alt="Grup" style="width:48px;height:48px;border-radius:8px;object-fit:cover;flex-shrink:0;">
+    <div style="min-width:0;">
+      <div style="font-size:.78rem;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Grup Astrobot Community 3</div>
+      <div style="font-size:.68rem;color:#555;margin-top:2px;display:flex;align-items:center;gap:4px;">
+        <i class="fas fa-users" style="color:#22c55e;font-size:.6rem;"></i>
+        <span>Grup Publik</span>
+      </div>
+    </div>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" style="margin-left:auto;flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
+  </a>
 
 </div>
 </div>
 </div>
-<!-- Disclaimer -->
+
 <div style="max-width:1100px;margin:0 auto;padding:0 24px 24px">
 <div style="background:#1a1a1a;border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:14px 18px;font-size:.75rem;color:#888888;line-height:1.7">
 <strong style="color:#cccccc;display:block;margin-bottom:4px">Catatan Penting:</strong>
       Astrobot tidak menyediakan fitur bug WhatsApp, push kontak massal, maupun penjualan panel bot. Kami berkomitmen menjaga kenyamanan publik dan menggunakan bot hanya untuk fitur yang aman, wajar, dan bermanfaat.
     </div>
 </div>
-<!-- Bottom bar -->
+
 <div style="border-top:1px solid rgba(255,255,255,0.1);padding:16px 24px;text-align:center">
 <div class="ft-copy">© <span id="yr">2026</span> Astrobot · All rights reserved</div>
 <div class="footer-made-by">Made by <span class="footer-sanzo">Rexzz</span></div>
@@ -458,16 +494,16 @@
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-<!-- ===== MODAL SCRIPT SALE ===== -->
+
 <div id="scriptSaleModal" onclick="if(event.target===this)closeScriptModal()" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.9);overflow-y:auto;">
 <div style="max-width:680px;margin:40px auto;padding:16px;animation:slideUp .25s ease;">
 <div style="background:#0d0d0d;border:1px solid #2a2a2a;border-radius:12px;overflow:hidden;">
-<!-- Header -->
+
 <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #1a1a1a;">
 <span style="color:#fff;font-weight:700;font-size:1rem;">Script Bot Astrobot</span>
 <button onclick="closeScriptModal()" style="background:#1a1a1a;border:1px solid #2a2a2a;color:#888;width:30px;height:30px;border-radius:6px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
 </div>
-<!-- Thumbnail 16:9 -->
+
 <div style="margin:16px 20px;border-radius:8px;overflow:hidden;border:1px solid #1a1a1a;">
 <div style="position:relative;width:100%;padding-top:56.25%;background:#111;overflow:hidden;">
 <img alt="Astrobot" src="https://cdn.nekohime.site/file/ujz0uvGt.jpeg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;"/>
@@ -482,7 +518,7 @@
 </div>
 </div>
 </div>
-<!-- Info Grid -->
+
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 20px 16px;">
 <div style="background:#111;border:1px solid #1e1e1e;border-radius:8px;padding:14px;">
 <div style="color:#fff;font-weight:700;font-size:.82rem;margin-bottom:10px;">Info System</div>
@@ -531,7 +567,7 @@
 </div>
 </div>
 </div>
-<!-- Fitur Unggulan -->
+
 <div style="padding:0 20px 16px;">
 <div style="background:#111;border:1px solid #1e1e1e;border-radius:8px;padding:14px;">
 <div style="color:#fff;font-weight:700;font-size:.82rem;margin-bottom:10px;">Fitur Unggulan</div>
@@ -547,7 +583,7 @@
 </div>
 </div>
 </div>
-<!-- CTA -->
+
 <div style="padding:0 20px 20px;display:flex;flex-direction:column;align-items:center;gap:10px;border-top:1px solid #1a1a1a;padding-top:16px;">
 <p style="color:#555;font-size:.82rem;margin:0;">Hubungi admin untuk info harga &amp; pembelian</p>
 <a href="https://wa.me/6289674097203?text=Halo%20min%2C%20saya%20tertarik%20beli%20script%20Astrobot%20Digital%20%E2%9A%A1" style="display:inline-flex;align-items:center;gap:8px;background:#ffffff;color:#000;padding:10px 24px;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none;border:1px solid #333;" target="_blank">
@@ -559,7 +595,7 @@
 </div>
 
 
-<!-- ===== ORDER PAGE (Full Screen Scroll) ===== -->
+
 <div id="orderModal" style="position:fixed;inset:0;z-index:99996;background:#0a0a0a;overflow-y:auto;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);visibility:hidden;">
 
   <!-- TOP NAV -->
@@ -583,7 +619,7 @@
       </p>
     </div>
 
-    <!-- ✨ Fitur Bot Group -->
+
     <div style="padding:0 16px 16px;">
       <div style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:12px;">Fitur Bot Group:</div>
       <ul style="list-style:disc;padding-left:20px;margin:0;display:flex;flex-direction:column;gap:6px;">
@@ -602,7 +638,7 @@
       </ul>
     </div>
 
-    <!-- 🔧 Fungsi Admin -->
+
     <div style="padding:0 16px 16px;">
       <div style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:12px;">Fungsi Admin:</div>
       <ul style="list-style:disc;padding-left:20px;margin:0;display:flex;flex-direction:column;gap:6px;">
@@ -615,7 +651,7 @@
       </ul>
     </div>
 
-    <!-- 🎯 Cocok Untuk -->
+
     <div style="padding:0 16px 16px;">
       <div style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:12px;">Cocok Untuk:</div>
       <ul style="list-style:disc;padding-left:20px;margin:0;display:flex;flex-direction:column;gap:6px;">
@@ -627,7 +663,7 @@
       </ul>
     </div>
 
-    <!-- 📦 Ketentuan Sewa -->
+
     <div style="padding:0 16px 16px;">
       <div style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:12px;">Ketentuan Sewa:</div>
       <ul style="list-style:disc;padding-left:20px;margin:0;display:flex;flex-direction:column;gap:6px;">
@@ -640,7 +676,7 @@
       <p style="font-size:.85rem;color:#888;font-style:italic;margin-top:12px;">Bot siap meramaikan grup + membantu admin otomatis</p>
     </div>
 
-    <!-- DIVIDER -->
+
     <div style="height:1px;background:#1e1e1e;margin:8px 16px 24px;"></div>
 
     <!-- HARGA -->
@@ -648,7 +684,7 @@
       <div style="font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:6px;" id="orderHargaBesar">Rp 6.000</div>
     </div>
 
-    <!-- FORM PESANAN -->
+
     <div style="padding:0 16px;">
       <!-- Stok -->
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;">
@@ -656,23 +692,23 @@
         <span style="font-size:.9rem;color:#22c55e;font-weight:700;">Stok Tersedia</span>
       </div>
 
-      <!-- TOMBOL BELI -->
+
       <div style="display:flex;align-items:center;gap:10px;padding-bottom:40px;">
-        <a href="https://wa.me/6289674097203" target="_blank"
-          style="width:100%;display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:#000;padding:13px 16px;border-radius:10px;font-weight:800;font-size:.92rem;border:none;cursor:pointer;transition:.2s;letter-spacing:.01em;text-decoration:none;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        <button id="orderBeliBtn" onclick="handleBeli()"
+          style="width:100%;display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:#000;padding:13px 16px;border-radius:10px;font-weight:800;font-size:.92rem;border:none;cursor:pointer;transition:.2s;letter-spacing:.01em;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
           <i class="fas fa-bolt"></i> Hubungi Admin
-        </a>
+        </button>
       </div>
     </div>
 
   </div>
 
 </div>
-<!-- ===== END ORDER PAGE ===== -->
 
-<!-- ===== HISTORY PAGE ===== -->
-<!-- HISTORY PAGE DIHAPUS -->
+
+
+
 
 
 
@@ -682,7 +718,7 @@
 <!-- ===== SCRIPT DETAIL PAGE ===== -->
 
 
-</div><!-- end mainContent -->
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="script.js"></script>
@@ -707,7 +743,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<!-- ===== RIWAYAT PEMBELIAN PAGE ===== -->
+
 <div id="ownerDashboard" style="display:none;position:fixed;inset:0;z-index:99991;background:#0a0a0a;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;">
   <div style="position:sticky;top:0;z-index:10;background:rgba(10,10,10,0.96);backdrop-filter:blur(16px);border-bottom:1px solid #161616;">
     <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;">
@@ -767,7 +803,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
   </div>
 </div>
-<!-- ===== END RIWAYAT PEMBELIAN PAGE ===== -->
+
 
 <div id="scriptOrderModal" style="position:fixed;inset:0;z-index:99996;background:#0a0a0a;overflow-y:auto;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);visibility:hidden;">
   <div style="position:sticky;top:0;z-index:10;background:rgba(10,10,10,0.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:space-between;padding:0 16px;height:60px;">
@@ -781,7 +817,7 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
   <div style="max-width:680px;margin:0 auto;padding:0 0 120px;">
     <div style="padding:20px 16px 0;">
-      <p style="font-size:.9rem;color:#aaa;line-height:1.8;margin-bottom:18px;">Script Bot WhatsApp Modern, Lengkap &amp; Siap Pakai</p>
+      <p id="soDesc" style="font-size:.9rem;color:#aaa;line-height:1.8;margin-bottom:18px;">Script Bot WhatsApp Modern, Lengkap &amp; Siap Pakai</p>
     </div>
     <div style="padding:0 16px 16px;">
       <div style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:12px;" id="soTitle">ASTROBOT MD</div>
@@ -806,13 +842,13 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
   </div>
 </div>
-<!-- ===== END SCRIPT ORDER PAGE ===== -->
+
 
 <!-- ===== SCRIPT DETAIL PAGE ===== -->
 
 
 
-<!-- ===== SCRIPT BOT DETAIL ===== -->
+
 <div id="scriptBotDetailModal" style="position:fixed;inset:0;z-index:99996;background:#0a0a0a;overflow-y:auto;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);visibility:hidden;">
 
   <!-- TOP NAV -->
@@ -960,6 +996,6 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 
 </div>
-<!-- ===== END SCRIPT BOT DETAIL ===== -->
+
 </body>
 </html>

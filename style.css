@@ -37,8 +37,6 @@ body::after{
 /* make all sections above grid */
 header,section,.banner,.hero,.why-sec,.testi-sec,.faq-sec,.btm-cta,.sec,.hero-grid,.wrap{position:relative;z-index:1;}
 .hero,.sec,.why-sec,.faq-sec,.stats,.feat-card,.why-card,.faq-item,.nc,.pc,.sp-card,.jb-card{
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
   background-color:rgba(255,255,255,0.015);
   border:none;
   box-shadow:none;
@@ -78,19 +76,32 @@ header{position:fixed;top:0;left:0;right:0;height:60px;background-color:rgba(10,
 /* PANEL */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:99996;opacity:0;visibility:hidden;transition:.3s}
 .overlay.on{opacity:1;visibility:visible}
-.panel{position:fixed;top:0;right:0;width:272px;height:100dvh;background-color:rgba(12,12,12,0.9);border-left:1px solid var(--border-soft);z-index:99997;transform:translateX(100%);transition:transform .4s cubic-bezier(.34,1.56,.64,1);display:flex;flex-direction:column}
+.panel{position:fixed;top:0;right:0;width:272px;height:100dvh;background-color:rgba(12,12,12,0.9);border-left:1px solid var(--border-soft);z-index:99997;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
 .panel.on{transform:none}
-.panel-head{padding:18px 16px;border-bottom:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:space-between}
+.panel-head{padding:0;border-bottom:1px solid rgba(255,255,255,0.1);display:block;position:relative}
 .panel-head h3{font-weight:700;font-size:.95rem;color:#ffffff}
-.panel-close{width:30px;height:30px;border-radius:7px;background:#1a1a1a;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.8rem;color:#999999}
+.panel-close{position:absolute;top:10px;right:10px;width:32px;height:32px;border-radius:10px;background:rgba(0,0,0,0.65);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.12);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.8rem;color:#ffffff;flex-shrink:0;z-index:2}
 .panel-close:hover{background:#ff4444;color:#ffffff}
-.panel-nav{flex:1;padding:8px 0;overflow-y:auto}
-.plink{display:flex;align-items:center;gap:10px;padding:13px 18px;color:#cccccc;font-size:.875rem;font-weight:500;text-decoration:none;cursor:pointer;transition:.15s;border:none;background:none;width:100%;text-align:left;font-family:inherit}
+.panel-nav{flex:1;padding:8px 0 12px;overflow-y:auto;display:flex;flex-direction:column;gap:6px}
+.panel-banner-wrap{width:100%}
+.panel-banner-thumb{width:100%;height:140px;overflow:hidden;background:#0b0b0b}
+.panel-banner-thumb img{width:100%;height:100%;display:block;object-fit:cover}
+.plink{display:flex;align-items:center;gap:10px;padding:13px 18px;color:#cccccc;font-size:.875rem;font-weight:500;text-decoration:none;cursor:pointer;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .2s,color .2s,border-color .2s;border:none;background:none;width:100%;text-align:left;font-family:inherit;position:relative;opacity:0;transform:translateX(16px)}
+.plink .plink-icon{width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s,border-color .2s}
+.plink .plink-text{flex:1}
 .plink i{width:16px;color:#ffffff;font-size:.85rem}
-.plink:hover{background:rgba(255,255,255,0.05);color:#ffffff}
+.plink:hover{background:rgba(255,255,255,0.05);color:#ffffff;transform:translateX(4px)}
+.plink:hover .plink-icon{background:rgba(59,130,246,0.12);border-color:rgba(59,130,246,0.2)}
 .plink.special{margin:6px 10px;width:calc(100% - 20px);border-radius:9px;background:#1a1a1a;color:#ffffff;border:1px solid rgba(255,255,255,0.15)}
 .plink.special i{color:#ffffff}
 .plink.special:hover{background:rgba(255,255,255,0.1)}
+.panel.on .plink{animation:navLinkIn .35s cubic-bezier(.4,0,.2,1) forwards}
+.panel.on .plink:nth-child(2){animation-delay:.08s}
+.panel.on .plink:nth-child(3){animation-delay:.14s}
+.panel.on .plink:nth-child(4){animation-delay:.2s}
+.panel.on .plink:nth-child(5){animation-delay:.26s}
+.panel.on .plink:nth-child(6){animation-delay:.32s}
+@keyframes navLinkIn{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:translateX(0)}}
 .panel-foot{padding:14px 16px;border-top:1px solid rgba(255,255,255,0.1);text-align:center;font-size:.7rem;color:#666666}
 
 /* QRIS MODAL */
@@ -131,8 +142,8 @@ header{position:fixed;top:0;left:0;right:0;height:60px;background-color:rgba(10,
 @keyframes tl{0%{width:0;border-color:#ffffff}40%{width:100%}65%{width:100%}90%{width:0}100%{width:0;border-color:transparent}}
 .hero-desc{font-size:.88rem;color:#cccccc;line-height:1.7;margin-bottom:22px;max-width:500px}
 .hero-btns{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
-.spotify-embed-wrap{max-width:420px;margin-bottom:12px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);box-shadow:0 10px 30px rgba(0,0,0,0.2)}
-.spotify-embed{display:block;width:100%;height:152px;border:0}
+
+
 .btn-purple{display:inline-flex;align-items:center;gap:7px;padding:11px 20px;background:#ffffff;color:#000000;font-weight:700;font-size:.85rem;border-radius:10px;text-decoration:none;transition:.2s;border:none;cursor:pointer;font-family:inherit}
 .btn-purple:hover{background:#e0e0e0;transform:translateY(-1px)}
 .btn-outline{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;background:#1a1a1a;color:#ffffff;font-weight:600;font-size:.85rem;border-radius:10px;text-decoration:none;transition:.2s;border:1px solid rgba(255,255,255,0.2);cursor:pointer;font-family:inherit}
@@ -405,7 +416,7 @@ footer{border-top:1px solid rgba(255,255,255,0.1);padding:28px 16px;text-align:c
 
 /* NEW CARD STYLE */
 .nc{
-  background-color:rgba(24,24,24,0.78);
+  background-color:#181818;
   border-radius:20px;padding:22px;
   border:1px solid var(--border-soft);
   transition:transform .25s,box-shadow .25s;
@@ -509,23 +520,15 @@ footer{border-top:1px solid rgba(255,255,255,0.1);padding:28px 16px;text-align:c
 /* ── GLOW EFFECTS ON CARDS ── */
 /* Permanen card pulse glow */
 .nc-perm-glow{
-  animation:permglow 2.5s ease-in-out infinite;
-}
-@keyframes permglow{
-  0%,100%{box-shadow:0 0 20px rgba(251,191,36,0.2),0 0 0 1px rgba(251,191,36,0.15)}
-  50%{box-shadow:0 0 40px rgba(251,191,36,0.45),0 0 80px rgba(251,191,36,0.12),0 0 0 1px rgba(251,191,36,0.4)}
+  box-shadow:0 0 28px rgba(251,191,36,0.25),0 0 0 1px rgba(251,191,36,0.25);
 }
 .nc-perm-glow::before{
   background:linear-gradient(90deg,#d97706,#fbbf24) !important;
 }
-/* shimmer sweep on perm card */
+/* shimmer dihapus — static saja */
 .nc-perm-glow .nc-shimmer{
-  position:absolute;top:0;left:-80%;width:60%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(251,191,36,0.07),transparent);
-  animation:permshine 2.5s ease-in-out infinite;
-  pointer-events:none;
+  display:none;
 }
-@keyframes permshine{0%{left:-80%}100%{left:180%}}
 
 /* general card glow on all nc cards on hover */
 .nc:hover{
@@ -1064,3 +1067,185 @@ footer{border-top:1px solid rgba(255,255,255,0.1);padding:28px 16px;text-align:c
 .hist-card-anim {
   animation: histCardIn .28s cubic-bezier(.4,0,.2,1) both;
 }
+
+/* Performance optimizations */
+*{-webkit-tap-highlight-color:transparent}
+img,iframe{content-visibility:auto}
+.nc-card,.hero-section,.testimonial-card{will-change:auto}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+
+/* ===== NEUBRUTALISM HYBRID ===== */
+
+/* Kartu sewa & premium */
+.nc {
+  border: 2px solid #fff !important;
+  box-shadow: 4px 4px 0 #fff !important;
+  border-radius: 4px !important;
+  transition: box-shadow .15s, transform .15s !important;
+}
+.nc:hover {
+  box-shadow: 6px 6px 0 #fff !important;
+  transform: translate(-2px, -2px) !important;
+}
+.nc-perm-glow {
+  border-color: #fbbf24 !important;
+  box-shadow: 4px 4px 0 #fbbf24 !important;
+}
+.nc-perm-glow:hover {
+  box-shadow: 6px 6px 0 #fbbf24 !important;
+}
+
+/* Tombol utama nc-cta */
+.nc-cta {
+  border: 2px solid #000 !important;
+  box-shadow: 3px 3px 0 #000 !important;
+  border-radius: 4px !important;
+  transition: box-shadow .12s, transform .12s !important;
+  font-weight: 900 !important;
+  letter-spacing: .04em !important;
+}
+.nc-cta:hover {
+  box-shadow: 5px 5px 0 #000 !important;
+  transform: translate(-2px, -2px) !important;
+}
+.nc-cta:active {
+  box-shadow: 1px 1px 0 #000 !important;
+  transform: translate(2px, 2px) !important;
+}
+
+/* Pricing tabs */
+.pricing-tab {
+  border: 2px solid #333 !important;
+  border-radius: 4px !important;
+  font-weight: 800 !important;
+  letter-spacing: .03em !important;
+  transition: box-shadow .12s, transform .12s, border-color .12s !important;
+}
+.pricing-tab:hover {
+  border-color: #fff !important;
+  box-shadow: 3px 3px 0 #fff !important;
+  transform: translate(-1px, -1px) !important;
+}
+.pricing-tab.active-tab {
+  border-color: #fff !important;
+  box-shadow: 3px 3px 0 #fff !important;
+  background: #fff !important;
+  color: #000 !important;
+}
+
+/* Header */
+header {
+  border-bottom: 2px solid rgba(255,255,255,0.15) !important;
+}
+
+/* Section titles */
+.sec-title {
+  letter-spacing: -.01em !important;
+}
+.sec-title span {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+
+/* FAQ items */
+.faq-item {
+  border: 2px solid #1e1e1e !important;
+  border-radius: 4px !important;
+  transition: border-color .15s !important;
+}
+.faq-item:hover {
+  border-color: #444 !important;
+}
+.faq-item.open {
+  border-color: #fff !important;
+}
+
+/* Fitur cards */
+.feat {
+  border: 2px solid #1a1a1a !important;
+  border-radius: 4px !important;
+  transition: border-color .15s, box-shadow .15s, transform .15s !important;
+}
+.feat:hover {
+  border-color: #444 !important;
+  box-shadow: 3px 3px 0 #333 !important;
+  transform: translate(-1px, -1px) !important;
+}
+
+/* Testimoni */
+.testi-card {
+  border: 2px solid #1e1e1e !important;
+  border-radius: 4px !important;
+  transition: border-color .15s !important;
+}
+.testi-card:hover {
+  border-color: #555 !important;
+}
+
+/* CTA bottom section */
+.btm-cta-btn {
+  border: 2px solid #000 !important;
+  box-shadow: 4px 4px 0 #000 !important;
+  border-radius: 4px !important;
+  font-weight: 900 !important;
+  letter-spacing: .05em !important;
+  transition: box-shadow .12s, transform .12s !important;
+}
+.btm-cta-btn:hover {
+  box-shadow: 6px 6px 0 #000 !important;
+  transform: translate(-2px, -2px) !important;
+}
+
+/* Panel nav links */
+.plink {
+  border-radius: 4px !important;
+  border: 1px solid transparent !important;
+  transition: border-color .12s, background .12s !important;
+}
+.plink:hover {
+  border-color: #333 !important;
+}
+
+/* Sec label badge */
+.sec-lbl {
+  border: 2px solid currentColor !important;
+  border-radius: 2px !important;
+  box-shadow: 2px 2px 0 currentColor !important;
+  font-weight: 800 !important;
+  letter-spacing: .08em !important;
+}
+
+/* nc-price bold */
+.nc-price {
+  font-weight: 900 !important;
+  letter-spacing: -.01em !important;
+}
+
+/* nc-name */
+.nc-name {
+  font-weight: 900 !important;
+  letter-spacing: .01em !important;
+}
+
+/* nc-ben bullet ganti jadi kotak */
+.nc-ben::before {
+  content: "▸" !important;
+  margin-right: 6px;
+  color: #fff;
+  font-size: .8rem;
+}
+
+/* Footer */
+footer {
+  border-top: 2px solid #1e1e1e !important;
+}
+
+/* Scrollbar neubrutalism */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 0; border: 1px solid #555; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+
+/* ===== END NEUBRUTALISM ===== */
