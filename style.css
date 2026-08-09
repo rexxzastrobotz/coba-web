@@ -1692,3 +1692,50 @@ footer > div:nth-of-type(3){background:#000 !important;}
   .jb-v4-faq{padding:17px 16px}
   .jb-v4-command{padding:15px}
 }
+
+
+/* ===== JADIBOT V5: monochrome redesign ===== */
+.jb-access-body{background:#0b0b0b;color:#f2f2f2}
+.jb-access-head{margin-bottom:18px}
+.jb-access-kicker{color:#a0a0a0}
+.jb-access-title{color:#ffffff}
+.jb-access-desc{color:#b6b6b6}
+.jb-access-section-title{color:#a3a3a3}
+
+.jb-warning-box{background:linear-gradient(180deg,#171717,#101010);border:1px solid rgba(255,255,255,.12);box-shadow:0 10px 28px rgba(0,0,0,.28)}
+.jb-warning-title{color:#ffffff}
+.jb-warning-box p{color:#c5c5c5}
+.jb-warning-tags span{background:#1a1a1a;border-color:rgba(255,255,255,.10);color:#d1d1d1}
+
+.jb-bot-primary{display:flex;align-items:center;gap:14px;padding:18px 16px;border-radius:20px;background:linear-gradient(180deg,#f5f5f5,#d9d9d9);border:1px solid rgba(255,255,255,.65);box-shadow:0 18px 40px rgba(0,0,0,.28);color:#111;animation:none}
+.jb-bot-primary:hover{transform:translateY(-2px);border-color:#fff;box-shadow:0 18px 44px rgba(0,0,0,.34)}
+.jb-bot-primary-glow{display:none}
+.jb-bot-primary-icon{background:#ededed;color:#111;border:1px solid rgba(0,0,0,.08);box-shadow:none}
+.jb-bot-primary-content{color:#111}
+.jb-bot-primary-label{font-size:.64rem;letter-spacing:.14em;color:#555;text-transform:uppercase}
+.jb-bot-primary-number{font-size:1.35rem;color:#111;letter-spacing:.02em}
+.jb-bot-primary-hint{font-size:.73rem;color:#444;margin-top:6px;line-height:1.5}
+.jb-bot-primary-hint code{font-family:'JetBrains Mono',monospace;background:#111;color:#fff;border-radius:7px;padding:2px 6px;font-size:.72rem}
+.jb-bot-primary-subhint{display:block;font-size:.67rem;line-height:1.5;color:#666;margin-top:8px}
+.jb-bot-primary-action{align-self:center;padding:10px 14px;border-radius:12px;background:#111;color:#fff;font-size:.76rem;font-weight:800;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+
+.jb-howto,.jb-info-panel,.jb-faq-panel,.jb-command-example,.jb-ad-card,.jb-ad-wide,.jb-access-card,.jb-access-note{background:#111;border-color:rgba(255,255,255,.10)}
+.jb-howto-title,.jb-info-title,.jb-faq-simple b,.jb-access-name{color:#fff}
+.jb-howto-row span{background:#1d1d1d;color:#ddd;border-color:rgba(255,255,255,.08)}
+.jb-howto-row p,.jb-bullet-list p,.jb-faq-simple p,.jb-community-desc,.jb-access-note,.jb-access-meta,.jb-ad-card p,.jb-ad-wide p{color:#b8b8b8}
+.jb-howto code{background:#1c1c1c;border-color:rgba(255,255,255,.10);color:#fff}
+.jb-command-example{background:#f1f1f1;border:1px solid rgba(255,255,255,.75);color:#111;box-shadow:0 10px 26px rgba(0,0,0,.18)}
+.jb-command-label{color:#555}
+.jb-command-example code{background:#111;color:#fff;border:1px solid rgba(255,255,255,.08)}
+.jb-command-example p{color:#555}
+.jb-ad-label{background:#1f1f1f;color:#d5d5d5}
+.jb-ad-title,.jb-ad-wide b{color:#f0f0f0}
+.jb-ad-foot,.jb-ad-wide-label,.jb-access-arrow{color:#7a7a7a}
+.jb-access-card:hover{background:#161616}
+.jb-access-icon{background:#1b1b1b;border-color:rgba(255,255,255,.08)}
+
+@media(max-width:520px){
+  .jb-bot-primary{align-items:flex-start;padding:16px 14px 68px}
+  .jb-bot-primary-action{position:absolute;right:14px;bottom:14px}
+  .jb-bot-primary-hint,.jb-bot-primary-subhint{padding-right:0}
+}
