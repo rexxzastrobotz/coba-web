@@ -1779,3 +1779,36 @@ footer > div:nth-of-type(3){background:#000 !important;}
   .jb6-bot-action{padding:8px 10px}
   .jb6-section{padding:16px 15px}
 }
+
+
+/* ===== JADIBOT STANDALONE V11 ===== */
+.jadibot-launch-btn{
+  display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 14px;
+  border-radius:10px;border:1px solid rgba(255,255,255,.18);background:#171717;color:#fff;
+  font:700 .78rem 'Manrope',sans-serif;cursor:pointer;transition:.2s;
+}
+.jadibot-launch-btn:hover,.jadibot-launch-btn.is-open{background:#fff;color:#0b0b0b;border-color:#fff;transform:translateY(-1px)}
+.jadibot-standalone[hidden]{display:none!important}
+.jadibot-standalone{position:relative;z-index:1;padding:14px 16px 52px;background:#090909}
+.jadibot-standalone-inner{width:100%;max-width:1100px;margin:0 auto;display:flex;justify-content:center}
+.jadibot-plan-card{width:100%;max-width:470px;padding:24px;border-radius:24px;background:linear-gradient(180deg,#151515,#101010);border:1px solid rgba(255,255,255,.09);box-shadow:0 22px 50px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.03)}
+.jadibot-plan-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+.jadibot-plan-kicker{display:block;font:700 .58rem 'JetBrains Mono',monospace;letter-spacing:.12em;color:#8d8d8d;margin-bottom:8px}
+.jadibot-plan-head h2{font-size:1.32rem;line-height:1.18;color:#fff;margin:0 0 7px}
+.jadibot-plan-head p{font-size:.78rem;line-height:1.7;color:#9f9f9f;max-width:350px}
+.jadibot-card-close{width:34px;height:34px;flex:0 0 34px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:#1b1b1b;color:#a7a7a7;font-size:1.1rem;cursor:pointer;transition:.2s}
+.jadibot-card-close:hover{background:#fff;color:#111;border-color:#fff}
+.jadibot-plan-price{margin:28px 0 22px;padding:18px;border-radius:18px;background:#101010;border:1px solid rgba(255,255,255,.07)}
+.jadibot-plan-name{display:block;font:700 .6rem 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#818181;margin-bottom:8px}
+.jadibot-plan-price strong{display:block;font-size:clamp(1.85rem,8vw,2.75rem);line-height:1;color:#fff;letter-spacing:-.04em}
+.jadibot-plan-price>span:last-child{display:block;margin-top:9px;font-size:.72rem;color:#8f8f8f}
+.jadibot-plan-divider{height:1px;background:rgba(255,255,255,.08);margin:0 0 20px}
+.jadibot-plan-list{display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+.jadibot-plan-list>div{display:flex;align-items:flex-start;gap:12px}
+.jadibot-plan-list .jpi{width:34px;height:34px;flex:0 0 34px;border-radius:10px;background:#1b1b1b;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font:700 .58rem 'JetBrains Mono',monospace;color:#d6d6d6}
+.jadibot-plan-list p{margin:0;display:flex;flex-direction:column;gap:2px}
+.jadibot-plan-list b{font-size:.83rem;color:#f3f3f3}
+.jadibot-plan-list small{font-size:.7rem;line-height:1.5;color:#888}
+.jadibot-plan-cta{display:flex;align-items:center;justify-content:center;width:100%;min-height:54px;padding:12px 16px;border-radius:14px;background:#fff;color:#101010;text-decoration:none;font-size:.9rem;font-weight:800;border:1px solid #fff;transition:.2s}
+.jadibot-plan-cta:hover{background:#ededed;transform:translateY(-1px)}
+@media(max-width:520px){.jadibot-plan-card{padding:19px 17px;border-radius:20px}.jadibot-plan-price{padding:16px}.jadibot-plan-price strong{font-size:1.9rem}}

@@ -238,7 +238,7 @@
   <button onclick="filterPricing('scriptbot')" id="tab-scriptbot" class="pricing-tab">
     Script Bot (SC)
   </button>
-  <button onclick="filterPricing('jadibot')" id="tab-jadibot" class="pricing-tab">
+  <button type="button" id="jadibot-launch-btn" class="jadibot-launch-btn" onclick="toggleJadibotCard()">
     Jadibot
   </button>
 
@@ -349,43 +349,43 @@
 </div>
 </div><!-- end pricing-scriptbot -->
 
-<div id="pricing-jadibot" style="display:none;">
-  <div style="max-width:420px;margin:0 auto;">
-    <div style="background:linear-gradient(180deg,#141414 0%,#101010 100%);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:22px;box-shadow:0 16px 40px rgba(0,0,0,.26), inset 0 1px 0 rgba(255,255,255,.03);">
-      <div style="font-size:.92rem;font-weight:800;color:#fff;margin-bottom:12px;">Free</div>
-      <div style="font-size:.86rem;line-height:1.72;color:#a8a8a8;max-width:330px;">Paket dasar untuk mencoba Jadibot Astrobot dengan akses terbatas dan promosi aktif.</div>
-
-      <div style="font-size:clamp(2.2rem,9vw,3.2rem);line-height:1;font-weight:900;color:#fff;letter-spacing:-.05em;margin:34px 0 26px;">Jadibot</div>
-
-      <div style="height:1px;background:rgba(255,255,255,.08);margin-bottom:22px;"></div>
-
-      <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:28px;">
-        <div style="display:flex;align-items:center;gap:12px;color:#e6e6e6;">
-          <span style="width:34px;height:34px;border-radius:10px;background:#1b1b1b;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:800;color:#fff;">✓</span>
-          <span style="font-size:.84rem;"><b style="color:#fff;">1 Nomor Owner</b></span>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;color:#e6e6e6;">
-          <span style="width:34px;height:34px;border-radius:10px;background:#1b1b1b;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:800;color:#fff;">∞</span>
-          <span style="font-size:.84rem;"><b style="color:#fff;">Respon Aktif</b></span>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;color:#bbbbbb;">
-          <span style="width:34px;height:34px;border-radius:10px;background:#1b1b1b;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:800;color:#ff6b6b;">×</span>
-          <span style="font-size:.84rem;">Kustomisasi / setting tampilan tidak tersedia</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;color:#d6d6d6;">
-          <span style="width:34px;height:34px;border-radius:10px;background:#1b1b1b;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:.76rem;font-weight:800;color:#fff;">Ad</span>
-          <span style="font-size:.84rem;">Termasuk iklan / promosi</span>
-        </div>
-      </div>
-
-      <a href="jadibot.html" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;width:100%;min-height:56px;padding:12px 16px;border-radius:14px;background:#fff;color:#0c0c0c;text-decoration:none;font-size:.96rem;font-weight:800;border:1px solid #fff;">Mulai Sekarang</a>
-    </div>
-  </div>
-</div><!-- end pricing-jadibot -->
 
 </div>
 </section>
 
+<!-- JADIBOT STANDALONE CARD: outside pricing tabs -->
+<section id="jadibotStandalone" class="jadibot-standalone" aria-labelledby="jadibotStandaloneTitle" hidden>
+  <div class="jadibot-standalone-inner">
+    <div class="jadibot-plan-card">
+      <div class="jadibot-plan-head">
+        <div>
+          <span class="jadibot-plan-kicker">ASTROBOT JADIBOT</span>
+          <h2 id="jadibotStandaloneTitle">Akses Jadibot</h2>
+          <p>Gunakan nomor WhatsApp sendiri sebagai clone Astrobot dengan fitur dasar yang sudah disiapkan.</p>
+        </div>
+        <button type="button" class="jadibot-card-close" onclick="toggleJadibotCard(false)" aria-label="Tutup kartu Jadibot">×</button>
+      </div>
+
+      <div class="jadibot-plan-price">
+        <span class="jadibot-plan-name">Bot 1</span>
+        <strong>18763192888</strong>
+        <span>Nomor utama untuk memulai Jadibot.</span>
+      </div>
+
+      <div class="jadibot-plan-divider"></div>
+
+      <div class="jadibot-plan-list">
+        <div><span class="jpi">01</span><p><b>1 Nomor Owner</b><small>Satu nomor pengguna untuk satu sesi Jadibot.</small></p></div>
+        <div><span class="jpi">02</span><p><b>Respon Aktif</b><small>Fitur dasar Astrobot dapat digunakan dari nomor clone.</small></p></div>
+        <div><span class="jpi">03</span><p><b>Tanpa Kustomisasi</b><small>Setting tampilan dan pengaturan khusus tidak tersedia.</small></p></div>
+        <div><span class="jpi">AD</span><p><b>Termasuk Iklan</b><small>Promosi atau iklan dapat muncul selama penggunaan.</small></p></div>
+      </div>
+
+      <a class="jadibot-plan-cta" href="jadibot.html" target="_blank" rel="noopener noreferrer">Lihat & mulai sekarang</a>
+    </div>
+  </div>
+</section>
+<!-- END JADIBOT STANDALONE CARD -->
 
 
 <section class="why-sec">
@@ -467,42 +467,6 @@
 </div>
 </div>
 </section>
-
-
-
-
-
-<section aria-labelledby="jadibotDirectTitle" style="position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:20px 16px 46px;">
-  <div style="position:relative;overflow:hidden;background:linear-gradient(180deg,#141414 0%,#101010 100%);border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:24px 22px;box-shadow:0 16px 38px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.03);">
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap;">
-      <div>
-        <div style="display:inline-flex;align-items:center;gap:7px;padding:5px 9px;border-radius:999px;background:#1c1c1c;border:1px solid rgba(255,255,255,.08);font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:#d4d4d4;margin-bottom:12px;">Jadibot Astrobot</div>
-        <h2 id="jadibotDirectTitle" style="margin:0 0 10px;color:#fff;font-size:clamp(1.4rem,5vw,2.15rem);line-height:1.12;letter-spacing:-.03em;">Langsung coba Astrobot sekarang</h2>
-        <p style="margin:0;max-width:620px;color:#ababab;font-size:.84rem;line-height:1.72;">Hubungkan nomor WhatsApp kamu sebagai Jadibot dan gunakan fitur Astrobot langsung dari nomor sendiri dengan akses dasar yang lebih simpel.</p>
-      </div>
-      <div style="display:inline-flex;align-items:center;justify-content:center;padding:7px 11px;border-radius:999px;background:#191919;border:1px solid rgba(255,255,255,.08);font-size:.66rem;font-weight:700;color:#d7d7d7;white-space:nowrap;">fitur terbatas</div>
-    </div>
-
-    <div style="margin-top:18px;padding:18px;border-radius:18px;background:linear-gradient(180deg,#111 0%,#0d0d0d 100%);border:1px solid rgba(255,255,255,.08);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:end;">
-      <div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.11em;text-transform:uppercase;color:#858585;margin-bottom:8px;">akses jadibot</div>
-        <div style="font-size:1.55rem;font-weight:800;color:#fff;line-height:1.08;letter-spacing:-.03em;">Bot 1</div>
-        <div style="font-size:.79rem;color:#9d9d9d;line-height:1.7;margin-top:6px;">Klik untuk membuka halaman Jadibot, lihat informasi lengkap, lalu lanjut ke nomor bot dengan pesan <span style="font-family:'JetBrains Mono',monospace;color:#fff;">!jadibot</span>.</div>
-      </div>
-      <a href="jadibot.html" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 18px;background:#fff;color:#0a0a0a;border:1px solid #fff;border-radius:14px;text-decoration:none;font-size:.82rem;font-weight:800;white-space:nowrap;">
-        Coba sekarang
-        <i class="fas fa-arrow-up-right-from-square" aria-hidden="true" style="font-size:.72rem;"></i>
-      </a>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px;">
-      <div style="padding:12px 13px;border-radius:14px;background:#121212;border:1px solid rgba(255,255,255,.06);font-size:.73rem;color:#d9d9d9;"><div style="font-weight:800;color:#fff;margin-bottom:3px;">1 owner</div><div style="color:#909090;line-height:1.55;">1 nomor pengguna untuk 1 sesi</div></div>
-      <div style="padding:12px 13px;border-radius:14px;background:#121212;border:1px solid rgba(255,255,255,.06);font-size:.73rem;color:#d9d9d9;"><div style="font-weight:800;color:#fff;margin-bottom:3px;">tanpa kustom</div><div style="color:#909090;line-height:1.55;">setting tampilan tidak tersedia</div></div>
-      <div style="padding:12px 13px;border-radius:14px;background:#121212;border:1px solid rgba(255,255,255,.06);font-size:.73rem;color:#d9d9d9;"><div style="font-weight:800;color:#fff;margin-bottom:3px;">dengan iklan</div><div style="color:#909090;line-height:1.55;">promosi dapat muncul pada versi ini</div></div>
-    </div>
-  </div>
-</section>
-
 <footer style="background:#000000;border-top:1px solid rgba(255,255,255,0.1);padding:0">
 
 <div class="footer-community-area" style="max-width:1100px;margin:0 auto;padding:48px 24px 32px">
