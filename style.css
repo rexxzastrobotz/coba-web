@@ -1630,3 +1630,21 @@ footer > div:nth-of-type(3){background:#000 !important;}
   .jb-bot-primary-hint{padding-right:72px}
   .jb-ad-grid{grid-template-columns:1fr}
 }
+
+
+/* ===== JADIBOT INFO + FAQ V3 ===== */
+.jb-howto code{font-family:'JetBrains Mono',monospace;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);padding:2px 6px;border-radius:6px;font-size:.78rem}
+.jb-info-panel{margin-top:18px;padding:20px;border-radius:16px;background:rgba(15,15,15,.88);border:1px solid rgba(255,255,255,.1)}
+.jb-info-title{font-size:.95rem;font-weight:800;color:#fff;margin-bottom:12px;text-transform:lowercase}
+.jb-bullet-list{display:flex;flex-direction:column;gap:8px}
+.jb-bullet-list p{font-size:.8rem;line-height:1.65;color:#bdbdbd;margin:0}
+.jb-faq-panel{background:rgba(12,12,12,.82)}
+.jb-faq-simple{display:flex;flex-direction:column;gap:14px}
+.jb-faq-simple>div{padding-bottom:13px;border-bottom:1px solid rgba(255,255,255,.07)}
+.jb-faq-simple>div:last-child{border-bottom:none;padding-bottom:0}
+.jb-faq-simple b{display:block;color:#fff;font-size:.8rem;margin-bottom:4px;font-weight:700}
+.jb-faq-simple p{color:#aaa;font-size:.78rem;line-height:1.6;margin:0}
+.jb-command-example{margin-top:18px;padding:18px;border-radius:16px;background:#f4f4f4;color:#090909;border:1px solid #fff;box-shadow:0 8px 26px rgba(0,0,0,.22)}
+.jb-command-label{display:block;font-size:.65rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#555;margin-bottom:8px}
+.jb-command-example code{display:block;font-family:'JetBrains Mono',monospace;font-size:clamp(.92rem,4vw,1.08rem);font-weight:700;background:#0b0b0b;color:#fff;padding:12px 14px;border-radius:10px;overflow-wrap:anywhere}
+.jb-command-example p{font-size:.75rem;line-height:1.55;color:#555;margin:10px 0 0}
