@@ -203,7 +203,7 @@ function closeScriptBotDetail() {
 }
 
 function filterPricing(tab) {
-  ['group','script','scriptbot'].forEach(t => {
+  ['group','script','scriptbot','jadibot'].forEach(t => {
     const el = document.getElementById('pricing-' + t);
     const btn = document.getElementById('tab-' + t);
     if (el) el.style.display = t === tab ? 'block' : 'none';

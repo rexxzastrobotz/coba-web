@@ -977,6 +977,12 @@ footer{border-top:1px solid rgba(255,255,255,0.1);padding:28px 16px;text-align:c
 .user-dropdown-item i { width: 14px; font-size: .8rem; }
 
 /* ===== PRICING TABS ===== */
+.pricing-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
 .pricing-tab {
   display: inline-flex;
   align-items: center;
@@ -1003,6 +1009,152 @@ footer{border-top:1px solid rgba(255,255,255,0.1);padding:28px 16px;text-align:c
   color: #000;
   border-color: #fff;
   font-weight: 700;
+}
+
+/* ===== JADIBOT FREE PLAN ===== */
+.pricing-wrap-jadibot {
+  display: grid;
+  grid-template-columns: minmax(0, 480px);
+  justify-content: center;
+  padding: 0;
+}
+.jadibot-plan {
+  width: 100%;
+  max-width: 480px;
+  padding: 30px 28px 28px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 20px;
+  background: linear-gradient(180deg,rgba(24,25,26,.98),rgba(16,17,18,.98));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04),0 18px 50px rgba(0,0,0,.26);
+}
+.jadibot-plan::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: linear-gradient(90deg,transparent,#25d366,transparent);
+}
+.jadibot-plan-name {
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+.jadibot-plan-desc {
+  max-width: 390px;
+  margin-top: 8px;
+  color: #9b9ba1;
+  font-size: .88rem;
+  line-height: 1.75;
+}
+.jadibot-plan-price {
+  margin-top: 25px;
+  color: #fff;
+  font-size: clamp(2.8rem,10vw,3.65rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -.055em;
+}
+.jadibot-plan-divider {
+  height: 1px;
+  margin: 26px 0 22px;
+  background: rgba(255,255,255,.07);
+}
+.jadibot-plan-features {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.jadibot-plan-features li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 30px;
+  color: #dddde1;
+  font-size: .9rem;
+}
+.jadibot-plan-features strong {
+  color: #fff;
+  font-style: normal;
+  font-weight: 800;
+}
+.jadibot-plan-features em {
+  margin-left: 4px;
+  color: #8d8d95;
+  font-style: normal;
+  font-weight: 500;
+}
+.jadibot-feature-icon {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  align-items: center;
+  justify-content: center;
+  color: #a5a5ad;
+  font-size: 1rem;
+}
+.jadibot-feature-off .jadibot-feature-icon,
+.jadibot-feature-off em {
+  color: #e23d59;
+}
+.jadibot-ad-icon {
+  width: 28px;
+  height: 21px;
+  border: 2px solid #878790;
+  border-radius: 4px;
+  color: #a5a5ad;
+  font-size: .64rem;
+  font-weight: 800;
+  line-height: 1;
+}
+.jadibot-plan-cta {
+  display: flex;
+  width: 100%;
+  min-height: 50px;
+  margin-top: 30px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 13px;
+  background: rgba(255,255,255,.015);
+  color: #fff;
+  font-size: .95rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform .2s,background .2s,border-color .2s,box-shadow .2s;
+}
+.jadibot-plan-cta i { color: #25d366; font-size: 1.05rem; }
+.jadibot-plan-cta:hover {
+  transform: translateY(-2px);
+  border-color: rgba(37,211,102,.5);
+  background: rgba(37,211,102,.09);
+  box-shadow: 0 10px 28px rgba(37,211,102,.1);
+}
+.jadibot-plan-cta:focus-visible {
+  outline: 3px solid rgba(37,211,102,.35);
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .pricing-tabs {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+  .pricing-tab {
+    width: 100%;
+    justify-content: center;
+    padding-inline: 10px;
+    font-size: .76rem;
+  }
+  .pricing-wrap-jadibot { padding: 0 16px; }
+  .jadibot-plan { padding: 26px 22px 22px; }
 }
 
 /* ===== ORDER MODAL SLIDE ANIMATION ===== */
@@ -1462,353 +1614,3 @@ footer > div:nth-of-type(3){background:#000 !important;}
     border-top: 1px solid rgba(255,255,255,0.08);
   }
 }
-
-
-/* ===== JADIBOT FREE CTA / ACCESS PAGE ===== */
-.jadibot-cta{
-  position:relative;
-  z-index:1;
-  max-width:1100px;
-  margin:0 auto;
-  padding:18px 16px 44px;
-}
-.jadibot-box{
-  background:rgba(16,16,16,.82);
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:18px;
-  padding:26px;
-  overflow:hidden;
-  position:relative;
-}
-.jadibot-box::after{
-  content:'';
-  position:absolute;
-  width:190px;
-  height:190px;
-  right:-80px;
-  top:-105px;
-  border-radius:50%;
-  background:rgba(255,255,255,.035);
-  pointer-events:none;
-}
-.jadibot-kicker{
-  font-family:'JetBrains Mono',monospace;
-  font-size:.67rem;
-  color:#777;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  margin-bottom:8px;
-}
-.jadibot-box h2{
-  color:#fff;
-  font-size:clamp(1.35rem,4.6vw,2rem);
-  line-height:1.18;
-  letter-spacing:-.02em;
-  margin:0 0 10px;
-}
-.jadibot-box p{
-  color:#999;
-  font-size:.84rem;
-  line-height:1.75;
-  max-width:650px;
-  margin-bottom:18px;
-}
-.jadibot-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:9px;
-  min-height:44px;
-  padding:11px 17px;
-  border-radius:10px;
-  background:#fff;
-  color:#000;
-  text-decoration:none;
-  font-size:.82rem;
-  font-weight:800;
-  border:1px solid #fff;
-  transition:transform .2s ease,background .2s ease;
-}
-.jadibot-btn:hover{background:#e8e8e8;transform:translateY(-1px)}
-
-.jb-access-body{
-  min-height:100vh;
-  background:#090909;
-  color:#fff;
-  font-family:'Manrope',sans-serif;
-  padding:32px 16px 54px;
-}
-.jb-access-wrap{width:100%;max-width:680px;margin:0 auto}
-.jb-access-back{
-  display:inline-flex;align-items:center;gap:7px;color:#8b8b8b;text-decoration:none;
-  font-size:.78rem;margin-bottom:24px;transition:.2s;
-}
-.jb-access-back:hover{color:#fff}
-.jb-access-head{margin-bottom:22px}
-.jb-access-kicker{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#666;letter-spacing:.12em;text-transform:uppercase;margin-bottom:7px}
-.jb-access-title{font-size:clamp(1.7rem,7vw,2.5rem);line-height:1.08;letter-spacing:-.035em;margin:0 0 10px}
-.jb-access-desc{font-size:.86rem;line-height:1.75;color:#999;max-width:580px}
-.jb-access-section-title{font-size:.72rem;color:#777;text-transform:uppercase;letter-spacing:.1em;margin:22px 0 9px;font-weight:700}
-.jb-access-card{
-  display:flex;align-items:center;gap:12px;width:100%;padding:14px;
-  border-radius:13px;background:#111;border:1px solid rgba(255,255,255,.09);
-  text-decoration:none;color:#fff;margin-bottom:9px;transition:.2s;
-}
-.jb-access-card:hover{background:#151515;border-color:rgba(255,255,255,.18);transform:translateY(-1px)}
-.jb-access-icon{
-  width:42px;height:42px;display:flex;align-items:center;justify-content:center;
-  flex:0 0 42px;border-radius:10px;background:#191919;border:1px solid rgba(255,255,255,.08);font-size:.9rem;
-}
-.jb-access-content{min-width:0;flex:1}
-.jb-access-name{font-size:.85rem;font-weight:800;color:#fff;margin-bottom:2px}
-.jb-access-meta{font-size:.7rem;color:#666;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.jb-access-arrow{color:#444;font-size:.75rem;margin-left:auto}
-.jb-access-note{
-  margin-top:19px;padding:14px 15px;border-radius:12px;background:rgba(255,255,255,.025);
-  border:1px solid rgba(255,255,255,.07);color:#777;font-size:.74rem;line-height:1.7;
-}
-@media(max-width:480px){
-  .jadibot-box{padding:21px 18px}
-  .jadibot-btn{width:100%}
-  .jb-access-body{padding-top:24px}
-}
-
-
-/* ===== JADIBOT ACCESS V2: prominent bot button + trial notice + ad slots ===== */
-.jb-warning-box{
-  margin:0 0 22px;padding:16px 17px;border-radius:14px;
-  background:linear-gradient(145deg,rgba(245,158,11,.10),rgba(255,255,255,.018));
-  border:1px solid rgba(245,158,11,.24);
-}
-.jb-warning-title{display:flex;align-items:center;gap:8px;color:#f5c56b;font-size:.82rem;font-weight:800;margin-bottom:7px}
-.jb-warning-box p{font-size:.76rem;line-height:1.7;color:#a7a7a7;margin:0}
-.jb-warning-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-.jb-warning-tags span{font-size:.62rem;color:#aaa;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:5px 8px;border-radius:99px}
-
-.jb-bot-primary{
-  position:relative;display:flex;align-items:center;gap:14px;width:100%;overflow:hidden;
-  padding:18px 17px;margin-bottom:16px;border-radius:17px;text-decoration:none;color:#fff;
-  background:linear-gradient(135deg,#0d2418 0%,#0e1b14 48%,#111 100%);
-  border:1px solid rgba(34,197,94,.5);
-  box-shadow:0 0 0 1px rgba(34,197,94,.05),0 14px 42px rgba(0,0,0,.38),0 0 28px rgba(34,197,94,.10);
-  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
-}
-.jb-bot-primary:hover{transform:translateY(-2px);border-color:rgba(74,222,128,.8);box-shadow:0 17px 50px rgba(0,0,0,.46),0 0 34px rgba(34,197,94,.16)}
-.jb-bot-primary-glow{position:absolute;width:170px;height:170px;border-radius:50%;right:-60px;top:-75px;background:rgba(34,197,94,.10);filter:blur(5px);pointer-events:none}
-.jb-bot-primary-icon{position:relative;z-index:1;width:52px;height:52px;flex:0 0 52px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:#20b85a;color:#fff;font-size:1.45rem;box-shadow:0 7px 22px rgba(34,197,94,.25)}
-.jb-bot-primary-content{position:relative;z-index:1;display:flex;flex-direction:column;min-width:0;flex:1}
-.jb-bot-primary-label{font-family:'JetBrains Mono',monospace;font-size:.61rem;color:#62d98a;letter-spacing:.12em;margin-bottom:3px}
-.jb-bot-primary-number{font-size:1.28rem;font-weight:900;letter-spacing:.025em;line-height:1.12;color:#fff}
-.jb-bot-primary-hint{font-size:.68rem;color:#8f9c93;margin-top:5px;line-height:1.45}
-.jb-bot-primary-action{position:relative;z-index:1;display:inline-flex;align-items:center;gap:6px;flex:0 0 auto;padding:8px 10px;border-radius:9px;background:#fff;color:#0c0c0c;font-size:.69rem;font-weight:900}
-
-.jb-howto{margin:2px 0 25px;padding:15px 16px;border-radius:14px;background:rgba(255,255,255,.018);border:1px solid rgba(255,255,255,.07)}
-.jb-howto-title{font-size:.74rem;font-weight:800;color:#d5d5d5;margin-bottom:10px}
-.jb-howto-row{display:flex;align-items:flex-start;gap:10px;margin-top:8px}
-.jb-howto-row span{width:22px;height:22px;flex:0 0 22px;border-radius:7px;background:#191919;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#8a8a8a;font:600 .62rem 'JetBrains Mono',monospace}
-.jb-howto-row p{font-size:.72rem;line-height:1.6;color:#888;margin:1px 0 0}
-
-.jb-ad-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
-.jb-ad-card{position:relative;min-height:145px;padding:15px;border-radius:14px;background:linear-gradient(145deg,#121212,#0d0d0d);border:1px dashed rgba(255,255,255,.14);overflow:hidden}
-.jb-ad-card::after{content:'AD';position:absolute;right:-6px;bottom:-18px;font-size:4rem;font-weight:900;color:rgba(255,255,255,.018);line-height:1}
-.jb-ad-label{display:inline-flex;padding:3px 6px;border-radius:5px;background:#222;color:#aaa;font:700 .56rem 'JetBrains Mono',monospace;letter-spacing:.1em;margin-bottom:13px}
-.jb-ad-title{font-size:.79rem;font-weight:800;color:#ddd;margin-bottom:6px}
-.jb-ad-card p{font-size:.68rem;color:#6f6f6f;line-height:1.6;margin:0;max-width:250px}
-.jb-ad-foot{display:block;margin-top:11px;font-size:.56rem;text-transform:uppercase;letter-spacing:.12em;color:#414141}
-.jb-ad-wide{display:flex;align-items:center;gap:13px;margin:0 0 29px;padding:14px;border-radius:14px;background:#0d0d0d;border:1px dashed rgba(255,255,255,.12)}
-.jb-ad-wide-label{flex:0 0 auto;font:700 .52rem 'JetBrains Mono',monospace;letter-spacing:.1em;color:#555;writing-mode:vertical-rl;transform:rotate(180deg)}
-.jb-ad-wide b{display:block;font-size:.75rem;color:#aaa;margin-bottom:3px}
-.jb-ad-wide p{font-size:.66rem;line-height:1.55;color:#5f5f5f;margin:0}
-.jb-community-title{margin-top:28px}
-.jb-community-desc{font-size:.72rem;color:#777;line-height:1.65;margin:-2px 0 11px}
-
-@media(max-width:520px){
-  .jb-bot-primary{align-items:flex-start;padding:16px 14px;gap:11px}
-  .jb-bot-primary-icon{width:47px;height:47px;flex-basis:47px;font-size:1.25rem}
-  .jb-bot-primary-number{font-size:1.13rem}
-  .jb-bot-primary-action{position:absolute;right:13px;bottom:13px;padding:7px 9px}
-  .jb-bot-primary-hint{padding-right:72px}
-  .jb-ad-grid{grid-template-columns:1fr}
-}
-
-
-/* ===== JADIBOT INFO + FAQ V3 ===== */
-.jb-howto code{font-family:'JetBrains Mono',monospace;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);padding:2px 6px;border-radius:6px;font-size:.78rem}
-.jb-info-panel{margin-top:18px;padding:20px;border-radius:16px;background:rgba(15,15,15,.88);border:1px solid rgba(255,255,255,.1)}
-.jb-info-title{font-size:.95rem;font-weight:800;color:#fff;margin-bottom:12px;text-transform:lowercase}
-.jb-bullet-list{display:flex;flex-direction:column;gap:8px}
-.jb-bullet-list p{font-size:.8rem;line-height:1.65;color:#bdbdbd;margin:0}
-.jb-faq-panel{background:rgba(12,12,12,.82)}
-.jb-faq-simple{display:flex;flex-direction:column;gap:14px}
-.jb-faq-simple>div{padding-bottom:13px;border-bottom:1px solid rgba(255,255,255,.07)}
-.jb-faq-simple>div:last-child{border-bottom:none;padding-bottom:0}
-.jb-faq-simple b{display:block;color:#fff;font-size:.8rem;margin-bottom:4px;font-weight:700}
-.jb-faq-simple p{color:#aaa;font-size:.78rem;line-height:1.6;margin:0}
-.jb-command-example{margin-top:18px;padding:18px;border-radius:16px;background:#f4f4f4;color:#090909;border:1px solid #fff;box-shadow:0 8px 26px rgba(0,0,0,.22)}
-.jb-command-label{display:block;font-size:.65rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#555;margin-bottom:8px}
-.jb-command-example code{display:block;font-family:'JetBrains Mono',monospace;font-size:clamp(.92rem,4vw,1.08rem);font-weight:700;background:#0b0b0b;color:#fff;padding:12px 14px;border-radius:10px;overflow-wrap:anywhere}
-.jb-command-example p{font-size:.75rem;line-height:1.55;color:#555;margin:10px 0 0}
-
-/* ===== JADIBOT V4: stronger info/FAQ hierarchy ===== */
-.jb-v4-notice{
-  margin:24px 0 14px;padding:0;border-radius:20px;overflow:hidden;
-  background:#f4f4f4;color:#0b0b0b;border:1px solid #fff;
-  box-shadow:0 18px 50px rgba(0,0,0,.34);
-}
-.jb-v4-notice-head{display:flex;gap:13px;align-items:flex-start;padding:20px 20px 16px;border-bottom:1px solid #d8d8d8}
-.jb-v4-notice-badge{flex:0 0 auto;background:#0b0b0b;color:#fff;border-radius:7px;padding:5px 8px;font:700 .58rem 'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
-.jb-v4-notice-head h2{font-size:1.02rem;line-height:1.25;margin:0 0 5px;text-transform:lowercase}
-.jb-v4-notice-head p{font-size:.73rem;color:#686868;line-height:1.55;margin:0}
-.jb-v4-points{padding:17px 20px;display:flex;flex-direction:column;gap:8px}
-.jb-v4-points p{margin:0;font-size:.79rem;line-height:1.6;color:#252525}
-.jb-v4-risk{margin:0 15px 15px;padding:14px;display:flex;gap:11px;border-radius:13px;background:#171010;border:1px solid rgba(248,113,113,.3);color:#fff}
-.jb-v4-risk-mark{width:30px;height:30px;flex:0 0 30px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:#ef4444;color:#fff;font-weight:900}
-.jb-v4-risk b{display:block;font-size:.77rem;margin-bottom:6px;color:#fecaca;text-transform:lowercase}
-.jb-v4-risk p{font-size:.72rem;line-height:1.55;color:#c6a9a9;margin:4px 0 0}
-
-.jb-v4-faq{margin:14px 0 0;padding:20px;border-radius:20px;background:#0f0f0f;border:1px solid rgba(255,255,255,.13)}
-.jb-v4-section-kicker{font:700 .6rem 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#777;margin-bottom:5px}
-.jb-v4-faq h2{font-size:1.02rem;color:#fff;margin:0 0 14px;text-transform:lowercase}
-.jb-v4-faq-item{padding:13px 0;border-top:1px solid rgba(255,255,255,.08)}
-.jb-v4-faq-item b{display:block;color:#fff;font-size:.8rem;margin-bottom:5px}
-.jb-v4-faq-item p{color:#9a9a9a;font-size:.76rem;line-height:1.65;margin:0}
-
-.jb-v4-command{margin:14px 0 28px;padding:18px;border-radius:18px;background:linear-gradient(135deg,#15361f,#0f2015);border:1px solid rgba(34,197,94,.45);box-shadow:0 12px 34px rgba(0,0,0,.28)}
-.jb-v4-command-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
-.jb-v4-command-top span{font-size:.72rem;font-weight:800;color:#b7f7c9;text-transform:lowercase}
-.jb-v4-command-top small{font:600 .57rem 'JetBrains Mono',monospace;color:#62d98a}
-.jb-v4-command code{display:block;padding:14px 15px;border-radius:11px;background:#050806;border:1px solid rgba(74,222,128,.2);color:#fff;font:700 clamp(.92rem,4vw,1.08rem) 'JetBrains Mono',monospace;overflow-wrap:anywhere}
-.jb-v4-command p{font-size:.7rem;line-height:1.55;color:#7fa98b;margin:9px 0 0}
-
-.jb-bot-primary{animation:jbV4Pulse 2.4s ease-in-out infinite}
-@keyframes jbV4Pulse{0%,100%{box-shadow:0 0 0 1px rgba(34,197,94,.05),0 14px 42px rgba(0,0,0,.38),0 0 20px rgba(34,197,94,.08)}50%{box-shadow:0 0 0 1px rgba(34,197,94,.13),0 14px 42px rgba(0,0,0,.38),0 0 38px rgba(34,197,94,.22)}}
-
-.jadibot-free-flags{display:flex;flex-wrap:wrap;gap:6px;margin:13px 0 16px}
-.jadibot-free-flags span{font-size:.63rem;padding:5px 8px;border-radius:99px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1);color:#aaa}
-
-@media(max-width:520px){
-  .jb-v4-notice-head{flex-direction:column}
-  .jb-v4-notice-head,.jb-v4-points{padding-left:16px;padding-right:16px}
-  .jb-v4-faq{padding:17px 16px}
-  .jb-v4-command{padding:15px}
-}
-
-
-/* ===== JADIBOT V5: monochrome redesign ===== */
-.jb-access-body{background:#0b0b0b;color:#f2f2f2}
-.jb-access-head{margin-bottom:18px}
-.jb-access-kicker{color:#a0a0a0}
-.jb-access-title{color:#ffffff}
-.jb-access-desc{color:#b6b6b6}
-.jb-access-section-title{color:#a3a3a3}
-
-.jb-warning-box{background:linear-gradient(180deg,#171717,#101010);border:1px solid rgba(255,255,255,.12);box-shadow:0 10px 28px rgba(0,0,0,.28)}
-.jb-warning-title{color:#ffffff}
-.jb-warning-box p{color:#c5c5c5}
-.jb-warning-tags span{background:#1a1a1a;border-color:rgba(255,255,255,.10);color:#d1d1d1}
-
-.jb-bot-primary{display:flex;align-items:center;gap:14px;padding:18px 16px;border-radius:20px;background:linear-gradient(180deg,#f5f5f5,#d9d9d9);border:1px solid rgba(255,255,255,.65);box-shadow:0 18px 40px rgba(0,0,0,.28);color:#111;animation:none}
-.jb-bot-primary:hover{transform:translateY(-2px);border-color:#fff;box-shadow:0 18px 44px rgba(0,0,0,.34)}
-.jb-bot-primary-glow{display:none}
-.jb-bot-primary-icon{background:#ededed;color:#111;border:1px solid rgba(0,0,0,.08);box-shadow:none}
-.jb-bot-primary-content{color:#111}
-.jb-bot-primary-label{font-size:.64rem;letter-spacing:.14em;color:#555;text-transform:uppercase}
-.jb-bot-primary-number{font-size:1.35rem;color:#111;letter-spacing:.02em}
-.jb-bot-primary-hint{font-size:.73rem;color:#444;margin-top:6px;line-height:1.5}
-.jb-bot-primary-hint code{font-family:'JetBrains Mono',monospace;background:#111;color:#fff;border-radius:7px;padding:2px 6px;font-size:.72rem}
-.jb-bot-primary-subhint{display:block;font-size:.67rem;line-height:1.5;color:#666;margin-top:8px}
-.jb-bot-primary-action{align-self:center;padding:10px 14px;border-radius:12px;background:#111;color:#fff;font-size:.76rem;font-weight:800;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
-
-.jb-howto,.jb-info-panel,.jb-faq-panel,.jb-command-example,.jb-ad-card,.jb-ad-wide,.jb-access-card,.jb-access-note{background:#111;border-color:rgba(255,255,255,.10)}
-.jb-howto-title,.jb-info-title,.jb-faq-simple b,.jb-access-name{color:#fff}
-.jb-howto-row span{background:#1d1d1d;color:#ddd;border-color:rgba(255,255,255,.08)}
-.jb-howto-row p,.jb-bullet-list p,.jb-faq-simple p,.jb-community-desc,.jb-access-note,.jb-access-meta,.jb-ad-card p,.jb-ad-wide p{color:#b8b8b8}
-.jb-howto code{background:#1c1c1c;border-color:rgba(255,255,255,.10);color:#fff}
-.jb-command-example{background:#f1f1f1;border:1px solid rgba(255,255,255,.75);color:#111;box-shadow:0 10px 26px rgba(0,0,0,.18)}
-.jb-command-label{color:#555}
-.jb-command-example code{background:#111;color:#fff;border:1px solid rgba(255,255,255,.08)}
-.jb-command-example p{color:#555}
-.jb-ad-label{background:#1f1f1f;color:#d5d5d5}
-.jb-ad-title,.jb-ad-wide b{color:#f0f0f0}
-.jb-ad-foot,.jb-ad-wide-label,.jb-access-arrow{color:#7a7a7a}
-.jb-access-card:hover{background:#161616}
-.jb-access-icon{background:#1b1b1b;border-color:rgba(255,255,255,.08)}
-
-@media(max-width:520px){
-  .jb-bot-primary{align-items:flex-start;padding:16px 14px 68px}
-  .jb-bot-primary-action{position:absolute;right:14px;bottom:14px}
-  .jb-bot-primary-hint,.jb-bot-primary-subhint{padding-right:0}
-}
-
-/* ===== JADIBOT V6: simple monochrome ===== */
-.jb6-body{
-  margin:0;min-height:100vh;background:#0b0b0b;color:#f5f5f5;
-  font-family:'Manrope',sans-serif;padding:24px 16px 48px;
-}
-.jb6-wrap{width:100%;max-width:650px;margin:0 auto}
-.jb6-back{display:inline-flex;align-items:center;gap:7px;color:#8d8d8d;text-decoration:none;font-size:.78rem;margin-bottom:30px}
-.jb6-back:hover{color:#fff}
-.jb6-hero{margin-bottom:28px}
-.jb6-kicker{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.14em;color:#777;margin:0 0 8px}
-.jb6-hero h1{font-size:clamp(1.8rem,7vw,2.7rem);line-height:1.08;letter-spacing:-.04em;color:#fff;margin:0 0 11px}
-.jb6-desc{font-size:.84rem;line-height:1.7;color:#a8a8a8;margin:0 0 20px;max-width:560px}
-.jb6-bot{position:relative;display:flex;align-items:center;gap:13px;width:100%;padding:15px;border-radius:16px;background:#f2f2f2;border:1px solid #fff;color:#111;text-decoration:none;box-shadow:0 12px 32px rgba(0,0,0,.26);transition:.2s}
-.jb6-bot:hover{transform:translateY(-2px);background:#fff}
-.jb6-bot-icon{width:48px;height:48px;flex:0 0 48px;border-radius:12px;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.25rem}
-.jb6-bot-content{display:flex;flex-direction:column;min-width:0;flex:1}
-.jb6-bot-label{font-family:'JetBrains Mono',monospace;font-size:.59rem;letter-spacing:.12em;color:#777;margin-bottom:2px}
-.jb6-bot-content strong{font-size:1.12rem;letter-spacing:.02em;line-height:1.2;color:#111}
-.jb6-bot-content span:last-child{font-size:.69rem;color:#666;margin-top:4px}
-.jb6-bot-action{background:#111;color:#fff;padding:9px 12px;border-radius:10px;font-size:.72rem;font-weight:800}
-.jb6-prefill{font-size:.69rem;color:#777;margin:9px 2px 0}
-.jb6-prefill code{font-family:'JetBrains Mono',monospace;color:#fff;background:#181818;border:1px solid rgba(255,255,255,.08);padding:2px 6px;border-radius:5px}
-.jb6-section{margin-top:16px;padding:18px;border-radius:15px;background:#111;border:1px solid rgba(255,255,255,.09)}
-.jb6-section h2{font-size:.92rem;color:#fff;margin:0 0 13px}
-.jb6-list{display:flex;flex-direction:column;gap:8px}
-.jb6-list p{font-size:.76rem;line-height:1.65;color:#b7b7b7;margin:0}
-.jb6-faq-item{padding:12px 0;border-top:1px solid rgba(255,255,255,.08)}
-.jb6-faq-item:first-of-type{border-top:0;padding-top:0}
-.jb6-faq-item:last-child{padding-bottom:0}
-.jb6-faq-item b{display:block;font-size:.77rem;color:#f2f2f2;margin-bottom:5px}
-.jb6-faq-item p{font-size:.74rem;line-height:1.62;color:#a5a5a5;margin:0}
-@media(max-width:480px){
-  .jb6-body{padding-top:20px}
-  .jb6-bot{padding:14px 13px}
-  .jb6-bot-icon{width:44px;height:44px;flex-basis:44px}
-  .jb6-bot-content strong{font-size:1rem}
-  .jb6-bot-action{padding:8px 10px}
-  .jb6-section{padding:16px 15px}
-}
-
-
-/* ===== JADIBOT STANDALONE V11 ===== */
-.jadibot-launch-btn{
-  display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 14px;
-  border-radius:10px;border:1px solid rgba(255,255,255,.18);background:#171717;color:#fff;
-  font:700 .78rem 'Manrope',sans-serif;cursor:pointer;transition:.2s;
-}
-.jadibot-launch-btn:hover,.jadibot-launch-btn.is-open{background:#fff;color:#0b0b0b;border-color:#fff;transform:translateY(-1px)}
-.jadibot-standalone[hidden]{display:none!important}
-.jadibot-standalone{position:relative;z-index:1;padding:14px 16px 52px;background:#090909}
-.jadibot-standalone-inner{width:100%;max-width:1100px;margin:0 auto;display:flex;justify-content:center}
-.jadibot-plan-card{width:100%;max-width:470px;padding:24px;border-radius:24px;background:linear-gradient(180deg,#151515,#101010);border:1px solid rgba(255,255,255,.09);box-shadow:0 22px 50px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.03)}
-.jadibot-plan-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
-.jadibot-plan-kicker{display:block;font:700 .58rem 'JetBrains Mono',monospace;letter-spacing:.12em;color:#8d8d8d;margin-bottom:8px}
-.jadibot-plan-head h2{font-size:1.32rem;line-height:1.18;color:#fff;margin:0 0 7px}
-.jadibot-plan-head p{font-size:.78rem;line-height:1.7;color:#9f9f9f;max-width:350px}
-.jadibot-card-close{width:34px;height:34px;flex:0 0 34px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:#1b1b1b;color:#a7a7a7;font-size:1.1rem;cursor:pointer;transition:.2s}
-.jadibot-card-close:hover{background:#fff;color:#111;border-color:#fff}
-.jadibot-plan-price{margin:28px 0 22px;padding:18px;border-radius:18px;background:#101010;border:1px solid rgba(255,255,255,.07)}
-.jadibot-plan-name{display:block;font:700 .6rem 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#818181;margin-bottom:8px}
-.jadibot-plan-price strong{display:block;font-size:clamp(1.85rem,8vw,2.75rem);line-height:1;color:#fff;letter-spacing:-.04em}
-.jadibot-plan-price>span:last-child{display:block;margin-top:9px;font-size:.72rem;color:#8f8f8f}
-.jadibot-plan-divider{height:1px;background:rgba(255,255,255,.08);margin:0 0 20px}
-.jadibot-plan-list{display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
-.jadibot-plan-list>div{display:flex;align-items:flex-start;gap:12px}
-.jadibot-plan-list .jpi{width:34px;height:34px;flex:0 0 34px;border-radius:10px;background:#1b1b1b;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font:700 .58rem 'JetBrains Mono',monospace;color:#d6d6d6}
-.jadibot-plan-list p{margin:0;display:flex;flex-direction:column;gap:2px}
-.jadibot-plan-list b{font-size:.83rem;color:#f3f3f3}
-.jadibot-plan-list small{font-size:.7rem;line-height:1.5;color:#888}
-.jadibot-plan-cta{display:flex;align-items:center;justify-content:center;width:100%;min-height:54px;padding:12px 16px;border-radius:14px;background:#fff;color:#101010;text-decoration:none;font-size:.9rem;font-weight:800;border:1px solid #fff;transition:.2s}
-.jadibot-plan-cta:hover{background:#ededed;transform:translateY(-1px)}
-@media(max-width:520px){.jadibot-plan-card{padding:19px 17px;border-radius:20px}.jadibot-plan-price{padding:16px}.jadibot-plan-price strong{font-size:1.9rem}}
