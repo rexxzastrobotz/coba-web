@@ -1014,14 +1014,14 @@ footer{border-top:1px solid rgba(255,255,255,0.1);padding:28px 16px;text-align:c
 /* ===== JADIBOT FREE PLAN ===== */
 .pricing-wrap-jadibot {
   display: grid;
-  grid-template-columns: minmax(0, 480px);
+  grid-template-columns: minmax(0, 420px);
   justify-content: center;
   padding: 0;
 }
 .jadibot-plan {
   width: 100%;
-  max-width: 480px;
-  padding: 30px 28px 28px;
+  max-width: 420px;
+  padding: 24px 22px 22px;
   overflow: hidden;
   position: relative;
   border: 1px solid rgba(255,255,255,.09);
@@ -1038,34 +1038,34 @@ footer{border-top:1px solid rgba(255,255,255,0.1);padding:28px 16px;text-align:c
 }
 .jadibot-plan-name {
   color: #fff;
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-weight: 800;
   letter-spacing: -.02em;
 }
 .jadibot-plan-desc {
-  max-width: 390px;
-  margin-top: 8px;
+  max-width: 350px;
+  margin-top: 6px;
   color: #9b9ba1;
-  font-size: .88rem;
-  line-height: 1.75;
+  font-size: .8rem;
+  line-height: 1.65;
 }
 .jadibot-plan-price {
-  margin-top: 25px;
+  margin-top: 20px;
   color: #fff;
-  font-size: clamp(2.8rem,10vw,3.65rem);
+  font-size: clamp(2.45rem,9vw,3.15rem);
   font-weight: 900;
   line-height: 1;
   letter-spacing: -.055em;
 }
 .jadibot-plan-divider {
   height: 1px;
-  margin: 26px 0 22px;
+  margin: 20px 0 17px;
   background: rgba(255,255,255,.07);
 }
 .jadibot-plan-features {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -1073,10 +1073,10 @@ footer{border-top:1px solid rgba(255,255,255,0.1);padding:28px 16px;text-align:c
 .jadibot-plan-features li {
   display: flex;
   align-items: center;
-  gap: 14px;
-  min-height: 30px;
+  gap: 11px;
+  min-height: 26px;
   color: #dddde1;
-  font-size: .9rem;
+  font-size: .82rem;
 }
 .jadibot-plan-features strong {
   color: #fff;
@@ -1091,33 +1091,33 @@ footer{border-top:1px solid rgba(255,255,255,0.1);padding:28px 16px;text-align:c
 }
 .jadibot-feature-icon {
   display: inline-flex;
-  width: 28px;
-  height: 28px;
-  flex: 0 0 28px;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
   align-items: center;
   justify-content: center;
   color: #a5a5ad;
-  font-size: 1rem;
+  font-size: .9rem;
 }
 .jadibot-feature-off .jadibot-feature-icon,
 .jadibot-feature-off em {
   color: #e23d59;
 }
 .jadibot-ad-icon {
-  width: 28px;
-  height: 21px;
+  width: 24px;
+  height: 19px;
   border: 2px solid #878790;
   border-radius: 4px;
   color: #a5a5ad;
-  font-size: .64rem;
+  font-size: .58rem;
   font-weight: 800;
   line-height: 1;
 }
 .jadibot-plan-cta {
   display: flex;
   width: 100%;
-  min-height: 50px;
-  margin-top: 30px;
+  min-height: 44px;
+  margin-top: 22px;
   align-items: center;
   justify-content: center;
   gap: 9px;
@@ -1125,7 +1125,7 @@ footer{border-top:1px solid rgba(255,255,255,0.1);padding:28px 16px;text-align:c
   border-radius: 13px;
   background: rgba(255,255,255,.015);
   color: #fff;
-  font-size: .95rem;
+  font-size: .88rem;
   font-weight: 800;
   text-decoration: none;
   transition: transform .2s,background .2s,border-color .2s,box-shadow .2s;
@@ -1153,8 +1153,14 @@ footer{border-top:1px solid rgba(255,255,255,0.1);padding:28px 16px;text-align:c
     padding-inline: 10px;
     font-size: .76rem;
   }
-  .pricing-wrap-jadibot { padding: 0 16px; }
-  .jadibot-plan { padding: 26px 22px 22px; }
+  .pricing-wrap-jadibot {
+    grid-template-columns: minmax(0, 340px);
+    padding: 0 18px;
+  }
+  .jadibot-plan {
+    max-width: 340px;
+    padding: 21px 19px 19px;
+  }
 }
 
 /* ===== ORDER MODAL SLIDE ANIMATION ===== */
