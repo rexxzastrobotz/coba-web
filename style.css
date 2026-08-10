@@ -1926,7 +1926,7 @@ footer > div:nth-of-type(3){background:#000 !important;}
   transition: width .32s cubic-bezier(.22,1,.36,1),background-color .25s,border-color .25s !important;
 }
 
-/* ===== ASTROBOT BUILD 9: WHY COVERFLOW + SLIDE DOTS ===== */
+/* ===== ASTROBOT BUILD 10: STABLE THREE-CARD INFINITE LOOP ===== */
 .why-sec {overflow:hidden !important;}
 .why-marquee.swiper {
   width: 100%;

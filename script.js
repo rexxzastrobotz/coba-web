@@ -1,4 +1,4 @@
-/* ===== ASTROBOT BUILD 9 — WHY SLIDE DOTS ===== */
+/* ===== ASTROBOT BUILD 10 — THREE-CARD INFINITE WHY LOOP ===== */
 
 document.addEventListener('DOMContentLoaded', () => {
   const yrEl = document.getElementById('yr');
@@ -281,13 +281,44 @@ document.addEventListener('keydown', e => {
     const root = document.querySelector('.whySwiper');
     if (!root || typeof Swiper === 'undefined') return;
 
-    new Swiper(root, {
+    const track = root.querySelector('.why-marquee-track');
+    const originalSlides = track ? Array.from(track.querySelectorAll(':scope > .why-card:not([data-why-loop-copy])')) : [];
+    const logicalCount = originalSlides.length;
+    const dots = Array.from(root.querySelectorAll('[data-why-dot]'));
+    if (!track || logicalCount !== 3) return;
+
+    originalSlides.forEach((slide, index) => {
+      slide.dataset.whyIndex = String(index);
+    });
+
+    if (!track.querySelector('[data-why-loop-copy]')) {
+      originalSlides.forEach((slide, index) => {
+        const copy = slide.cloneNode(true);
+        copy.dataset.whyIndex = String(index);
+        copy.dataset.whyLoopCopy = 'true';
+        track.appendChild(copy);
+      });
+    }
+
+    function syncWhyDots(swiper) {
+      const activeLogicalIndex = ((swiper.realIndex % logicalCount) + logicalCount) % logicalCount;
+      dots.forEach((dot, index) => {
+        const active = index === activeLogicalIndex;
+        dot.classList.toggle('is-active', active);
+        if (active) dot.setAttribute('aria-current', 'true');
+        else dot.removeAttribute('aria-current');
+      });
+    }
+
+    const whySwiper = new Swiper(root, {
       effect: 'coverflow',
       centeredSlides: true,
       slidesPerView: 1.22,
       spaceBetween: 8,
       loop: true,
-      loopAdditionalSlides: 2,
+      loopAdditionalSlides: 1,
+      loopPreventsSliding: false,
+      slidesPerGroup: 1,
       speed: reduceMotion ? 0 : 680,
       grabCursor: true,
       followFinger: true,
@@ -305,15 +336,6 @@ document.addEventListener('keydown', e => {
       slideToClickedSlide: true,
       watchSlidesProgress: true,
       updateOnWindowResize: true,
-      pagination: {
-        el: root.querySelector('.why-pagination'),
-        clickable: true,
-        bulletClass: 'why-pagination-dot',
-        bulletActiveClass: 'is-active',
-        renderBullet(index, className) {
-          return `<button type="button" class="${className}" aria-label="Tampilkan kartu ${index + 1}"></button>`;
-        }
-      },
       coverflowEffect: {
         rotate: 0,
         stretch: 0,
@@ -327,6 +349,10 @@ document.addEventListener('keydown', e => {
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
         waitForTransition: true
+      },
+      on: {
+        init: syncWhyDots,
+        realIndexChange: syncWhyDots
       },
       breakpoints: {
         480: { slidesPerView: 1.45, spaceBetween: 10 },
@@ -344,6 +370,27 @@ document.addEventListener('keydown', e => {
           }
         }
       }
+    });
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const targetLogicalIndex = Number(dot.dataset.whyDot);
+        if (!Number.isInteger(targetLogicalIndex)) return;
+
+        const totalSlides = logicalCount * 2;
+        const currentRealIndex = whySwiper.realIndex;
+        const candidates = [targetLogicalIndex, targetLogicalIndex + logicalCount];
+        const circularDistance = candidate => {
+          const forward = (candidate - currentRealIndex + totalSlides) % totalSlides;
+          const backward = (currentRealIndex - candidate + totalSlides) % totalSlides;
+          return Math.min(forward, backward);
+        };
+        const nearestRealIndex = candidates.reduce((best, candidate) =>
+          circularDistance(candidate) < circularDistance(best) ? candidate : best
+        );
+
+        whySwiper.slideToLoop(nearestRealIndex, reduceMotion ? 0 : 680);
+      });
     });
   }
 
