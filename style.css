@@ -1926,7 +1926,7 @@ footer > div:nth-of-type(3){background:#000 !important;}
   transition: width .32s cubic-bezier(.22,1,.36,1),background-color .25s,border-color .25s !important;
 }
 
-/* ===== ASTROBOT BUILD 8: WHY COVERFLOW CASCADE FIX ===== */
+/* ===== ASTROBOT BUILD 9: WHY COVERFLOW + SLIDE DOTS ===== */
 .why-sec {overflow:hidden !important;}
 .why-marquee.swiper {
   width: 100%;
@@ -1985,9 +1985,47 @@ footer > div:nth-of-type(3){background:#000 !important;}
 .lower-unified-bg > .why-sec .why-marquee .why-card.swiper-slide-active {
   box-shadow: inset 0 1px 0 rgba(255,255,255,.06),0 22px 55px rgba(0,0,0,.42) !important;
 }
+.why-pagination {
+  position: absolute !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: 9px !important;
+  z-index: 12;
+  width: auto !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transform: translateX(-50%) !important;
+}
+.why-pagination .why-pagination-dot {
+  appearance: none;
+  -webkit-appearance: none;
+  display: block;
+  width: 7px;
+  height: 7px;
+  margin: 0 !important;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,.25);
+  opacity: 1;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+  cursor: pointer;
+  transition: transform .28s cubic-bezier(.22,1,.36,1),background-color .25s,box-shadow .25s;
+}
+.why-pagination .why-pagination-dot.is-active {
+  background: #fff;
+  transform: scale(1.34);
+  box-shadow: 0 0 10px rgba(255,255,255,.4);
+}
+.why-pagination .why-pagination-dot:focus-visible {
+  outline: 2px solid rgba(255,255,255,.85);
+  outline-offset: 4px;
+}
 
 @media (min-width:900px) {
-  .why-marquee.swiper {padding:34px 28px 42px !important;}
+  .why-marquee.swiper {padding:34px 28px 46px !important;}
   .why-marquee .why-card.swiper-slide {
     min-height: 220px !important;
     padding: 24px 22px !important;

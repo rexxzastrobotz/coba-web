@@ -1,4 +1,4 @@
-/* ===== ASTROBOT BUILD 8 — WHY COVERFLOW FIX ===== */
+/* ===== ASTROBOT BUILD 9 — WHY SLIDE DOTS ===== */
 
 document.addEventListener('DOMContentLoaded', () => {
   const yrEl = document.getElementById('yr');
@@ -305,6 +305,15 @@ document.addEventListener('keydown', e => {
       slideToClickedSlide: true,
       watchSlidesProgress: true,
       updateOnWindowResize: true,
+      pagination: {
+        el: root.querySelector('.why-pagination'),
+        clickable: true,
+        bulletClass: 'why-pagination-dot',
+        bulletActiveClass: 'is-active',
+        renderBullet(index, className) {
+          return `<button type="button" class="${className}" aria-label="Tampilkan kartu ${index + 1}"></button>`;
+        }
+      },
       coverflowEffect: {
         rotate: 0,
         stretch: 0,
