@@ -1656,7 +1656,7 @@ footer > div:nth-of-type(3){background:#000 !important;}
   left: 0;
   width: 2px;
   border-radius: 0 3px 3px 0;
-  background: linear-gradient(180deg,transparent,#25d366,transparent);
+  background: linear-gradient(180deg,transparent,#fff,transparent);
 }
 .community-invite-badge {
   grid-area: badge;
@@ -1667,7 +1667,7 @@ footer > div:nth-of-type(3){background:#000 !important;}
   padding: 0;
   border: 0;
   background: transparent;
-  color: #62df8d;
+  color: #fff;
   font-size: .64rem;
   font-weight: 800;
   letter-spacing: .08em;
@@ -1710,10 +1710,10 @@ footer > div:nth-of-type(3){background:#000 !important;}
 }
 .community-invite-btn:hover {
   transform: translateY(-1px);
-  border-color: rgba(37,211,102,.38) !important;
+  border-color: rgba(255,255,255,.28) !important;
   background: #1d1d1d;
 }
-.community-invite-btn .fa-users {color:#25d366;}
+.community-invite-btn .fa-users {color:#fff;}
 .community-invite-btn .fa-arrow-up-right-from-square {font-size:.66rem;color:#696969;}
 
 .group-page {
@@ -1845,7 +1845,7 @@ footer > div:nth-of-type(3){background:#000 !important;}
     width:auto;
     height:2px;
     border-radius:0 0 3px 3px;
-    background:linear-gradient(90deg,transparent,#25d366,transparent);
+    background:linear-gradient(90deg,transparent,#fff,transparent);
   }
   .community-invite-badge {justify-self:center;}
   .community-invite h2 {margin-top:10px;}
