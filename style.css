@@ -1441,7 +1441,7 @@ footer > div:nth-of-type(3){background:#000 !important;}
 }
 .why-marquee::-webkit-scrollbar{display:none;}
 .why-marquee:active{cursor:grabbing;}
-.why-marquee-track{
+.why-marquee:not(.swiper-initialized) .why-marquee-track{
   animation:none !important;
   transform:none !important;
   width:max-content !important;
@@ -1465,7 +1465,7 @@ footer > div:nth-of-type(3){background:#000 !important;}
 }
 .why-marquee::-webkit-scrollbar{display:none}
 .why-marquee:active{cursor:grabbing}
-.why-marquee-track{
+.why-marquee:not(.swiper-initialized) .why-marquee-track{
   animation:none !important;
   transform:none !important;
   width:max-content !important;
@@ -1926,6 +1926,7 @@ footer > div:nth-of-type(3){background:#000 !important;}
   transition: width .32s cubic-bezier(.22,1,.36,1),background-color .25s,border-color .25s !important;
 }
 
+/* ===== ASTROBOT BUILD 8: WHY COVERFLOW CASCADE FIX ===== */
 .why-sec {overflow:hidden !important;}
 .why-marquee.swiper {
   width: 100%;
@@ -1952,6 +1953,7 @@ footer > div:nth-of-type(3){background:#000 !important;}
   transform-style: preserve-3d;
 }
 .why-marquee .why-card.swiper-slide {
+  animation: none !important;
   flex: 0 0 auto !important;
   max-width: none !important;
   min-height: 198px !important;

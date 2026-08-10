@@ -1,4 +1,4 @@
-/* ===== script.js ===== */
+/* ===== ASTROBOT BUILD 8 — WHY COVERFLOW FIX ===== */
 
 document.addEventListener('DOMContentLoaded', () => {
   const yrEl = document.getElementById('yr');
