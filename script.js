@@ -215,164 +215,130 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeScriptBotDetail();
 });
 
-/* ===== BANNER SLIDER NEUBRUTALISM ===== */
+/* ===== V12: PROFESSIONAL TOUCH SLIDERS ===== */
 (function() {
-  let nbCurrent = 0;
-  const total = 3;
-  let nbTimer;
-  let startX = 0;
-  let isDragging = false;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let bannerSwiper = null;
 
-  function nbGoTo(idx) {
-    nbCurrent = (idx + total) % total;
-    const track = document.getElementById('nbTrack');
-    if (!track) return;
-    track.style.transform = `translateX(-${nbCurrent * 100}%)`;
-    document.querySelectorAll('.nb-dot').forEach((d, i) => {
-      d.classList.toggle('active', i === nbCurrent);
+  function syncBannerDots(index) {
+    document.querySelectorAll('.nb-dot').forEach((dot, dotIndex) => {
+      dot.classList.toggle('active', dotIndex === index);
     });
   }
 
-  function nbNext() { nbGoTo(nbCurrent + 1); }
-  function nbPrev() { nbGoTo(nbCurrent - 1); }
+  window.nbGoTo = function(index) {
+    if (!bannerSwiper) return;
+    bannerSwiper.slideToLoop(index, reduceMotion ? 0 : 620);
+  };
 
-  function nbStartAuto() {
-    clearInterval(nbTimer);
-    nbTimer = setInterval(nbNext, 2000);
+  function initBannerSlider() {
+    const root = document.querySelector('.nbSwiper');
+    if (!root || typeof Swiper === 'undefined') return;
+
+    bannerSwiper = new Swiper(root, {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      loop: true,
+      speed: reduceMotion ? 0 : 620,
+      grabCursor: true,
+      followFinger: true,
+      simulateTouch: true,
+      allowTouchMove: true,
+      touchRatio: 1,
+      touchAngle: 45,
+      threshold: 3,
+      shortSwipes: true,
+      longSwipes: true,
+      longSwipesMs: 260,
+      longSwipesRatio: .18,
+      resistance: true,
+      resistanceRatio: .68,
+      watchSlidesProgress: true,
+      updateOnWindowResize: true,
+      autoplay: reduceMotion ? false : {
+        delay: 3800,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      },
+      on: {
+        init(swiper) { syncBannerDots(swiper.realIndex); },
+        slideChange(swiper) { syncBannerDots(swiper.realIndex); }
+      }
+    });
   }
 
-  window.nbGoTo = nbGoTo;
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const track = document.getElementById('nbTrack');
-    if (!track) return;
-
-    // Touch / drag support
-    track.addEventListener('touchstart', e => {
-      startX = e.touches[0].clientX;
-      clearInterval(nbTimer);
-    }, { passive: true });
-
-    track.addEventListener('touchend', e => {
-      const diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) diff > 0 ? nbNext() : nbPrev();
-      nbStartAuto();
-    }, { passive: true });
-
-    track.addEventListener('mousedown', e => {
-      startX = e.clientX;
-      isDragging = true;
-      clearInterval(nbTimer);
-    });
-
-    document.addEventListener('mouseup', e => {
-      if (!isDragging) return;
-      isDragging = false;
-      const diff = startX - e.clientX;
-      if (Math.abs(diff) > 40) diff > 0 ? nbNext() : nbPrev();
-      nbStartAuto();
-    });
-
-    nbStartAuto();
-  });
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBannerSlider, { once: true });
+  } else {
+    initBannerSlider();
+  }
 })();
 
 
-/* ===== V7: WHY cards — auto move, pause on touch, manual swipe, vertical page scroll stays free ===== */
-document.addEventListener('DOMContentLoaded', () => {
-  const slider = document.querySelector('.why-marquee');
-  const track = slider && slider.querySelector('.why-marquee-track');
-  if (!slider || !track) return;
+(function() {
+  const mobileWhy = window.matchMedia('(max-width: 899px)');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let whySwiper = null;
+  let root = null;
 
-  let paused = false;
-  let dragging = false;
-  let startX = 0;
-  let startY = 0;
-  let startScroll = 0;
-  let horizontalGesture = false;
-  let resumeTimer = null;
-  let lastTime = performance.now();
-  const speed = 28; // px / second
+  function enableWhySlider() {
+    if (!root || whySwiper || typeof Swiper === 'undefined') return;
 
-  const loopPoint = () => track.scrollWidth / 2;
-
-  function pauseAuto() {
-    paused = true;
-    clearTimeout(resumeTimer);
+    whySwiper = new Swiper(root, {
+      slidesPerView: 1.14,
+      spaceBetween: 10,
+      loop: true,
+      speed: reduceMotion ? 0 : 560,
+      grabCursor: true,
+      followFinger: true,
+      simulateTouch: true,
+      allowTouchMove: true,
+      touchRatio: 1,
+      touchAngle: 45,
+      threshold: 3,
+      shortSwipes: true,
+      longSwipes: true,
+      longSwipesMs: 260,
+      longSwipesRatio: .18,
+      resistance: true,
+      resistanceRatio: .68,
+      watchSlidesProgress: true,
+      watchOverflow: true,
+      updateOnWindowResize: true,
+      autoplay: reduceMotion ? false : {
+        delay: 3400,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      },
+      breakpoints: {
+        480: { slidesPerView: 1.45, spaceBetween: 12 },
+        700: { slidesPerView: 2, spaceBetween: 14 }
+      }
+    });
   }
 
-  function resumeAuto(delay = 1200) {
-    clearTimeout(resumeTimer);
-    resumeTimer = setTimeout(() => {
-      paused = false;
-      lastTime = performance.now();
-    }, delay);
+  function disableWhySlider() {
+    if (!whySwiper) return;
+    whySwiper.destroy(true, true);
+    whySwiper = null;
   }
 
-  function normalizeScroll() {
-    const half = loopPoint();
-    if (half > 0 && slider.scrollLeft >= half) slider.scrollLeft -= half;
-    if (slider.scrollLeft < 0) slider.scrollLeft += half;
+  function syncWhyMode() {
+    if (mobileWhy.matches) enableWhySlider();
+    else disableWhySlider();
   }
 
-  function autoFrame(now) {
-    const dt = Math.min((now - lastTime) / 1000, 0.05);
-    lastTime = now;
-    if (!paused && !dragging && document.visibilityState === 'visible') {
-      slider.scrollLeft += speed * dt;
-      normalizeScroll();
-    }
-    requestAnimationFrame(autoFrame);
+  function initWhySlider() {
+    root = document.querySelector('.whySwiper');
+    if (!root) return;
+    syncWhyMode();
+    if (mobileWhy.addEventListener) mobileWhy.addEventListener('change', syncWhyMode);
+    else mobileWhy.addListener(syncWhyMode);
   }
-  requestAnimationFrame(autoFrame);
 
-  // Touch: touching pauses auto. Horizontal movement drags cards;
-  // vertical movement is left to the browser so page scrolling never gets stuck.
-  slider.addEventListener('touchstart', (e) => {
-    if (!e.touches.length) return;
-    pauseAuto();
-    startX = e.touches[0].clientX;
-    startY = e.touches[0].clientY;
-    startScroll = slider.scrollLeft;
-    horizontalGesture = false;
-  }, { passive:true });
-
-  slider.addEventListener('touchmove', (e) => {
-    if (!e.touches.length) return;
-    const dx = e.touches[0].clientX - startX;
-    const dy = e.touches[0].clientY - startY;
-    if (!horizontalGesture && Math.abs(dx) > 7 && Math.abs(dx) > Math.abs(dy) * 1.15) {
-      horizontalGesture = true;
-    }
-    if (horizontalGesture) {
-      e.preventDefault();
-      slider.scrollLeft = startScroll - dx;
-      normalizeScroll();
-    }
-  }, { passive:false });
-
-  slider.addEventListener('touchend', () => resumeAuto(1400), { passive:true });
-  slider.addEventListener('touchcancel', () => resumeAuto(1400), { passive:true });
-
-  // Desktop mouse drag.
-  slider.addEventListener('mousedown', (e) => {
-    dragging = true;
-    pauseAuto();
-    startX = e.pageX;
-    startScroll = slider.scrollLeft;
-    e.preventDefault();
-  });
-  window.addEventListener('mousemove', (e) => {
-    if (!dragging) return;
-    slider.scrollLeft = startScroll - (e.pageX - startX);
-    normalizeScroll();
-  });
-  window.addEventListener('mouseup', () => {
-    if (!dragging) return;
-    dragging = false;
-    resumeAuto(1000);
-  });
-
-  slider.addEventListener('mouseenter', pauseAuto);
-  slider.addEventListener('mouseleave', () => { if (!dragging) resumeAuto(500); });
-});
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWhySlider, { once: true });
+  } else {
+    initWhySlider();
+  }
+})();

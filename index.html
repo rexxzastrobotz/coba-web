@@ -118,10 +118,10 @@
 
 
 <!-- BANNER SLIDER NEUBRUTALISM -->
-<div class="nb-slider-outer">
-  <div class="nb-slider-track" id="nbTrack">
+<div class="nb-slider-outer swiper nbSwiper" aria-label="Highlight Astrobot">
+  <div class="nb-slider-track swiper-wrapper" id="nbTrack">
     <!-- Slide 1 -->
-    <div class="nb-slide">
+    <div class="nb-slide swiper-slide">
       <img src="https://raw.githubusercontent.com/rexxzastrobotz/Web-resmi-/main/IMG-20260729-WA0029.jpg" alt="Astrobot 1" loading="lazy"/>
       <div class="nb-slide-overlay">
         <div class="nb-slide-badge">BOT</div>
@@ -129,7 +129,7 @@
       </div>
     </div>
     <!-- Slide 2 -->
-    <div class="nb-slide">
+    <div class="nb-slide swiper-slide">
       <img src="https://raw.githubusercontent.com/rexxzastrobotz/Web-resmi-/main/246c60e4-3d2f-4318-bc8f-54a7ca9596e7.jpeg" alt="Astrobot 2" loading="lazy"/>
       <div class="nb-slide-overlay">
         <div class="nb-slide-badge">RPG</div>
@@ -138,7 +138,7 @@
       </div>
     </div>
     <!-- Slide 3 -->
-    <div class="nb-slide">
+    <div class="nb-slide swiper-slide">
       <img src="https://raw.githubusercontent.com/rexxzastrobotz/Web-resmi-/main/IMG-20260628-WA0041.jpg" alt="Astrobot 3" loading="lazy"/>
       <div class="nb-slide-overlay">
         <div class="nb-slide-badge">AI</div>
@@ -406,36 +406,19 @@
     <p class="why-shizuku-desc">Temukan fitur unggulan yang membuat layanan Astrobot menjadi pilihan terbaik untuk kebutuhan WhatsApp Anda.</p>
   </div>
 
-  <div class="why-marquee" aria-label="Keunggulan Astrobot">
-    <div class="why-marquee-track">
-      <div class="why-card">
+  <div class="why-marquee swiper whySwiper" aria-label="Keunggulan Astrobot">
+    <div class="why-marquee-track swiper-wrapper">
+      <div class="why-card swiper-slide">
         <div class="why-ic ic-p"><i class="fas fa-bolt"></i></div>
         <div class="why-t">Respon Instan</div>
         <div class="why-d">Menjawab pesan dengan cepat dan responsif untuk penggunaan grup maupun pribadi.</div>
       </div>
-      <div class="why-card">
+      <div class="why-card swiper-slide">
         <div class="why-ic ic-b"><i class="fas fa-users"></i></div>
         <div class="why-t">Manajemen Grup</div>
         <div class="why-d">Welcome message, anti-link, kick spam, dan berbagai tools admin dalam satu bot.</div>
       </div>
-      <div class="why-card">
-        <div class="why-ic ic-g"><i class="fas fa-server"></i></div>
-        <div class="why-t">Server Stabil</div>
-        <div class="why-d">Layanan dijaga tetap aktif dan stabil agar bot siap digunakan kapan dibutuhkan.</div>
-      </div>
-
-      <!-- duplikat untuk membuat loop bergerak tanpa putar balik -->
-      <div class="why-card" aria-hidden="true">
-        <div class="why-ic ic-p"><i class="fas fa-bolt"></i></div>
-        <div class="why-t">Respon Instan</div>
-        <div class="why-d">Menjawab pesan dengan cepat dan responsif untuk penggunaan grup maupun pribadi.</div>
-      </div>
-      <div class="why-card" aria-hidden="true">
-        <div class="why-ic ic-b"><i class="fas fa-users"></i></div>
-        <div class="why-t">Manajemen Grup</div>
-        <div class="why-d">Welcome message, anti-link, kick spam, dan berbagai tools admin dalam satu bot.</div>
-      </div>
-      <div class="why-card" aria-hidden="true">
+      <div class="why-card swiper-slide">
         <div class="why-ic ic-g"><i class="fas fa-server"></i></div>
         <div class="why-t">Server Stabil</div>
         <div class="why-d">Layanan dijaga tetap aktif dan stabil agar bot siap digunakan kapan dibutuhkan.</div>
