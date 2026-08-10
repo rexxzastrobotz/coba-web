@@ -276,64 +276,66 @@ document.addEventListener('keydown', e => {
 
 
 (function() {
-  const mobileWhy = window.matchMedia('(max-width: 899px)');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let whySwiper = null;
-  let root = null;
+  function initWhySlider() {
+    const root = document.querySelector('.whySwiper');
+    if (!root || typeof Swiper === 'undefined') return;
 
-  function enableWhySlider() {
-    if (!root || whySwiper || typeof Swiper === 'undefined') return;
-
-    whySwiper = new Swiper(root, {
-      slidesPerView: 1.14,
-      spaceBetween: 10,
+    new Swiper(root, {
+      effect: 'coverflow',
+      centeredSlides: true,
+      slidesPerView: 1.22,
+      spaceBetween: 8,
       loop: true,
-      speed: reduceMotion ? 0 : 560,
+      loopAdditionalSlides: 2,
+      speed: reduceMotion ? 0 : 680,
       grabCursor: true,
       followFinger: true,
       simulateTouch: true,
       allowTouchMove: true,
       touchRatio: 1,
       touchAngle: 45,
-      threshold: 3,
+      threshold: 2,
       shortSwipes: true,
       longSwipes: true,
-      longSwipesMs: 260,
-      longSwipesRatio: .18,
+      longSwipesMs: 280,
+      longSwipesRatio: .16,
       resistance: true,
-      resistanceRatio: .68,
+      resistanceRatio: .72,
+      slideToClickedSlide: true,
       watchSlidesProgress: true,
-      watchOverflow: true,
       updateOnWindowResize: true,
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 115,
+        modifier: 1.15,
+        scale: .8,
+        slideShadows: false
+      },
       autoplay: reduceMotion ? false : {
-        delay: 3400,
+        delay: 2800,
         disableOnInteraction: false,
-        pauseOnMouseEnter: true
+        pauseOnMouseEnter: true,
+        waitForTransition: true
       },
       breakpoints: {
-        480: { slidesPerView: 1.45, spaceBetween: 12 },
-        700: { slidesPerView: 2, spaceBetween: 14 }
+        480: { slidesPerView: 1.45, spaceBetween: 10 },
+        700: { slidesPerView: 1.75, spaceBetween: 12 },
+        900: {
+          slidesPerView: 2,
+          spaceBetween: 16,
+          coverflowEffect: {
+            rotate: 0,
+            stretch: 0,
+            depth: 145,
+            modifier: 1.2,
+            scale: .76,
+            slideShadows: false
+          }
+        }
       }
     });
-  }
-
-  function disableWhySlider() {
-    if (!whySwiper) return;
-    whySwiper.destroy(true, true);
-    whySwiper = null;
-  }
-
-  function syncWhyMode() {
-    if (mobileWhy.matches) enableWhySlider();
-    else disableWhySlider();
-  }
-
-  function initWhySlider() {
-    root = document.querySelector('.whySwiper');
-    if (!root) return;
-    syncWhyMode();
-    if (mobileWhy.addEventListener) mobileWhy.addEventListener('change', syncWhyMode);
-    else mobileWhy.addListener(syncWhyMode);
   }
 
   if (document.readyState === 'loading') {
