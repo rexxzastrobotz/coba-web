@@ -1,4 +1,4 @@
-/* ===== ASTROBOT BUILD 10 — THREE-CARD INFINITE WHY LOOP ===== */
+/* ===== ASTROBOT BUILD 11 — SIMPLE WHY SLIDER ===== */
 
 document.addEventListener('DOMContentLoaded', () => {
   const yrEl = document.getElementById('yr');
@@ -281,29 +281,10 @@ document.addEventListener('keydown', e => {
     const root = document.querySelector('.whySwiper');
     if (!root || typeof Swiper === 'undefined') return;
 
-    const track = root.querySelector('.why-marquee-track');
-    const originalSlides = track ? Array.from(track.querySelectorAll(':scope > .why-card:not([data-why-loop-copy])')) : [];
-    const logicalCount = originalSlides.length;
     const dots = Array.from(root.querySelectorAll('[data-why-dot]'));
-    if (!track || logicalCount !== 3) return;
-
-    originalSlides.forEach((slide, index) => {
-      slide.dataset.whyIndex = String(index);
-    });
-
-    if (!track.querySelector('[data-why-loop-copy]')) {
-      originalSlides.forEach((slide, index) => {
-        const copy = slide.cloneNode(true);
-        copy.dataset.whyIndex = String(index);
-        copy.dataset.whyLoopCopy = 'true';
-        track.appendChild(copy);
-      });
-    }
-
-    function syncWhyDots(swiper) {
-      const activeLogicalIndex = ((swiper.realIndex % logicalCount) + logicalCount) % logicalCount;
-      dots.forEach((dot, index) => {
-        const active = index === activeLogicalIndex;
+    function syncWhyDots(activeIndex) {
+      dots.forEach((dot, dotIndex) => {
+        const active = dotIndex === activeIndex;
         dot.classList.toggle('is-active', active);
         if (active) dot.setAttribute('aria-current', 'true');
         else dot.removeAttribute('aria-current');
@@ -311,85 +292,41 @@ document.addEventListener('keydown', e => {
     }
 
     const whySwiper = new Swiper(root, {
-      effect: 'coverflow',
-      centeredSlides: true,
-      slidesPerView: 1.22,
-      spaceBetween: 8,
+      slidesPerView: 1,
+      spaceBetween: 0,
       loop: true,
-      loopAdditionalSlides: 1,
-      loopPreventsSliding: false,
-      slidesPerGroup: 1,
-      speed: reduceMotion ? 0 : 680,
+      speed: reduceMotion ? 0 : 620,
       grabCursor: true,
       followFinger: true,
       simulateTouch: true,
       allowTouchMove: true,
       touchRatio: 1,
       touchAngle: 45,
-      threshold: 2,
+      threshold: 3,
       shortSwipes: true,
       longSwipes: true,
-      longSwipesMs: 280,
-      longSwipesRatio: .16,
+      longSwipesMs: 260,
+      longSwipesRatio: .18,
       resistance: true,
-      resistanceRatio: .72,
-      slideToClickedSlide: true,
+      resistanceRatio: .68,
       watchSlidesProgress: true,
       updateOnWindowResize: true,
-      coverflowEffect: {
-        rotate: 0,
-        stretch: 0,
-        depth: 115,
-        modifier: 1.15,
-        scale: .8,
-        slideShadows: false
-      },
       autoplay: reduceMotion ? false : {
-        delay: 2800,
+        delay: 3800,
         disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-        waitForTransition: true
+        pauseOnMouseEnter: true
       },
       on: {
-        init: syncWhyDots,
-        realIndexChange: syncWhyDots
-      },
-      breakpoints: {
-        480: { slidesPerView: 1.45, spaceBetween: 10 },
-        700: { slidesPerView: 1.75, spaceBetween: 12 },
-        900: {
-          slidesPerView: 2,
-          spaceBetween: 16,
-          coverflowEffect: {
-            rotate: 0,
-            stretch: 0,
-            depth: 145,
-            modifier: 1.2,
-            scale: .76,
-            slideShadows: false
-          }
-        }
+        init(swiper) { syncWhyDots(swiper.realIndex); },
+        slideChange(swiper) { syncWhyDots(swiper.realIndex); }
       }
     });
 
     dots.forEach(dot => {
       dot.addEventListener('click', () => {
-        const targetLogicalIndex = Number(dot.dataset.whyDot);
-        if (!Number.isInteger(targetLogicalIndex)) return;
-
-        const totalSlides = logicalCount * 2;
-        const currentRealIndex = whySwiper.realIndex;
-        const candidates = [targetLogicalIndex, targetLogicalIndex + logicalCount];
-        const circularDistance = candidate => {
-          const forward = (candidate - currentRealIndex + totalSlides) % totalSlides;
-          const backward = (currentRealIndex - candidate + totalSlides) % totalSlides;
-          return Math.min(forward, backward);
-        };
-        const nearestRealIndex = candidates.reduce((best, candidate) =>
-          circularDistance(candidate) < circularDistance(best) ? candidate : best
-        );
-
-        whySwiper.slideToLoop(nearestRealIndex, reduceMotion ? 0 : 680);
+        const targetIndex = Number(dot.dataset.whyDot);
+        if (!Number.isInteger(targetIndex)) return;
+        whySwiper.slideToLoop(targetIndex, reduceMotion ? 0 : 620);
       });
     });
   }

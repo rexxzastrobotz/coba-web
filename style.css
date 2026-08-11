@@ -1926,18 +1926,17 @@ footer > div:nth-of-type(3){background:#000 !important;}
   transition: width .32s cubic-bezier(.22,1,.36,1),background-color .25s,border-color .25s !important;
 }
 
-/* ===== ASTROBOT BUILD 10: STABLE THREE-CARD INFINITE LOOP ===== */
+/* ===== ASTROBOT BUILD 11: SIMPLE HEADER-STYLE WHY SLIDER ===== */
 .why-sec {overflow:hidden !important;}
 .why-marquee.swiper {
-  width: 100%;
-  max-width: 980px !important;
+  width: calc(100% - 28px) !important;
+  max-width: 680px !important;
   margin: 0 auto !important;
-  padding: 28px 0 34px !important;
+  padding: 22px 0 40px !important;
   overflow: hidden !important;
   overscroll-behavior-x: contain;
   touch-action: pan-y pinch-zoom !important;
   cursor: grab;
-  perspective: 1200px;
   box-sizing: border-box;
 }
 .why-marquee.swiper:active {cursor:grabbing;}
@@ -1950,7 +1949,6 @@ footer > div:nth-of-type(3){background:#000 !important;}
   transition-property: transform !important;
   transition-timing-function: cubic-bezier(.22,1,.36,1) !important;
   will-change: transform !important;
-  transform-style: preserve-3d;
 }
 .why-marquee .why-card.swiper-slide {
   animation: none !important;
@@ -1963,19 +1961,18 @@ footer > div:nth-of-type(3){background:#000 !important;}
   background: linear-gradient(145deg,#111214,#0d0e10) !important;
   box-sizing: border-box;
   backface-visibility: hidden;
-  transform-origin: center center;
-  opacity: .42;
-  filter: brightness(.7) saturate(.82);
-  transition-property: transform,opacity,filter,box-shadow !important;
-  transition-timing-function: cubic-bezier(.22,1,.36,1) !important;
+  transform: translateZ(0);
+  opacity: 1 !important;
+  filter: none !important;
+  transition: none !important;
   scroll-snap-align: none !important;
   user-select: none;
   -webkit-user-select: none;
 }
 .why-marquee .why-card.swiper-slide-prev,
 .why-marquee .why-card.swiper-slide-next {
-  opacity: .68;
-  filter: brightness(.84) saturate(.9);
+  opacity: 1 !important;
+  filter: none !important;
 }
 .why-marquee .why-card.swiper-slide-active {
   z-index: 5;
@@ -2025,7 +2022,7 @@ footer > div:nth-of-type(3){background:#000 !important;}
 }
 
 @media (min-width:900px) {
-  .why-marquee.swiper {padding:34px 28px 46px !important;}
+  .why-marquee.swiper {padding:24px 0 46px !important;}
   .why-marquee .why-card.swiper-slide {
     min-height: 220px !important;
     padding: 24px 22px !important;
