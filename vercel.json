@@ -1,7 +1,6 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/group", "destination": "/folder/grup.html" },
-    { "source": "/group/", "destination": "/folder/grup.html" }
+    { "source": "/group", "destination": "/group/index.html" }
   ]
 }
